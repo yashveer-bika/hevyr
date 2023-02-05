@@ -9,17 +9,26 @@ import SearchBar from "./SearchBar";
 function FilterableExerciseTable( {lifts} : any) {
 
   return (
-      <div className="filterableExerciseTable">
-          <h1>this is the exercises page</h1>
+    <div className="filterableExerciseTable">
+        <h1>this is the exercises page</h1>
+        <div>
           <a> Filters </a>
           <EquipmentFilter></EquipmentFilter>
           <MuscleFilter></MuscleFilter>
+        </div>
+        
+        <div>
           <a> Library </a>
           <CreateExerciseButton></CreateExerciseButton>
-          <SearchBar></SearchBar>
-          {/* <ExerciseTable></ExerciseTable> */}
-          <ExerciseTable lifts={lifts}></ExerciseTable>
-      </div>
+        </div>
+        
+        <SearchBar></SearchBar>
+
+        <hr></hr>
+        
+        {/* <ExerciseTable></ExerciseTable> */}
+        <ExerciseTable lifts={lifts}></ExerciseTable>
+    </div>
   );
 }
 

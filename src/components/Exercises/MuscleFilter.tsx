@@ -19,7 +19,7 @@ function MuscleFilter() {
   return (
     <Dropdown 
       className="muscleFilter"
-      trigger={<button>All Equipment</button>}
+      trigger={<button>All Muscles</button>}
       menu={[
         <button onClick={handleMenuOne}>Menu 1</button>,
         <button onClick={handleMenuTwo}>Menu 2</button>,
