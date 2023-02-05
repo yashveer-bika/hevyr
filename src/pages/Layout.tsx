@@ -1,6 +1,6 @@
 import React from "react";
 import {Outlet} from "react-router-dom";
-import Navbar from "../components/NavBar/NewNavBar";
+import Navbar from "../components/NavBar/NavBar";
 import { NavButtonPair } from "../components/NavBar/types";
 
 const pages : NavButtonPair[] = [
@@ -11,8 +11,6 @@ const pages : NavButtonPair[] = [
   {pageName: "/profile", displayName: "Profile"},
   {pageName: "/settings", displayName: "Settings"}
 ];
-
-// TODO: pass `pages` into the Navbar
 
 const Layout = () => {
   return (
