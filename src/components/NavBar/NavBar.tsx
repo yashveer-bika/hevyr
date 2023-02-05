@@ -16,9 +16,6 @@ function Navbar( {pages} : any) {
     );
   });
 
-
-  
-
   return (
     <nav className="navBar">
        
