@@ -1,8 +1,12 @@
 import React from 'react';
+import ExerciseTable from '../components/Exercises/ExerciseTable';
 
 function Exercises() {
     return (
-        <h1>this is the exercises page</h1>
+        <div>
+            <h1>this is the exercises page</h1>
+            <ExerciseTable></ExerciseTable>
+        </div>
     );
 }
 

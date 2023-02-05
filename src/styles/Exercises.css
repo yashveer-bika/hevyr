@@ -1,0 +1,13 @@
+.exerciseTable {
+    flex: 1;
+    background: #aaa;
+    height: 150px;
+    width: 200px;
+    overflow-y: scroll;
+    margin: 0 auto
+  }
+
+.filterableExerciseTable {
+  width: 300px;
+  background: rgb(141, 91, 91);
+}
