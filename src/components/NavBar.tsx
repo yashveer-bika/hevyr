@@ -1,24 +1,36 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-// import NavDropdown from 'react-bootstrap/NavDropdown';
+import React from "react";
+// import {BrowserRouter} from "react-router-dom";
+// import {Route} from "react-router-dom";
+import {Link} from "react-router-dom";
 
-function NavBar() {
+function Navbar() {
   return (
-    <Navbar sticky="top" bg="light" expand="lg">
-      <Container>
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="">Home</Nav.Link>
-            <Nav.Link href="#routines">Routines</Nav.Link>
-            <Nav.Link href="#exercises">Exercises</Nav.Link>
-            <Nav.Link href="#profile">Profile</Nav.Link>
-            <Nav.Link href="#settings">Settings</Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <nav>
+      <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/feed">Feed</Link>
+        </li>
+        <li>
+          <Link to="/routines">Routines</Link>
+        </li>
+
+        <li>
+          <Link to="/exercises">Exercises</Link>
+        </li>
+
+        <li>
+          <Link to="/profile">Profile</Link>
+        </li>
+
+        <li>
+          <Link to="/settings">Settings</Link>
+        </li>
+      </ul>
+    </nav>
   );
 }
 
-export default NavBar;
+export default Navbar;
