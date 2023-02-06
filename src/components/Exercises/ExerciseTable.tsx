@@ -1,6 +1,7 @@
 import React from "react";
 import "../../styles/Exercises.css";
 import ExerciseRow from "./ExerciseRow";
+import LIFTS from "./ListData.json";
 
 // function ExerciseTable() {
 //   return (
@@ -39,10 +40,10 @@ import ExerciseRow from "./ExerciseRow";
 //   );
 // }
 
-function ExerciseTable( {lifts} : any) {
+function ExerciseTable() {
   const rows : any = [];
 
-  lifts.forEach( (lift : any) => {
+  LIFTS.forEach( (lift : any) => {
     rows.push(
       <ExerciseRow props={lift} />
     );

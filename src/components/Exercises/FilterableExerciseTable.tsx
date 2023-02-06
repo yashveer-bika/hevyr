@@ -27,8 +27,8 @@ function FilterableExerciseTable( {lifts} : any) {
 
         <hr></hr>
         
-        {/* <ExerciseTable></ExerciseTable> */}
-        <ExerciseTable lifts={lifts}></ExerciseTable>
+        <ExerciseTable></ExerciseTable>
+        {/* <ExerciseTable lifts={lifts}></ExerciseTable> */}
     </div>
   );
 }

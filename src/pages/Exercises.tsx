@@ -22,7 +22,8 @@ function Exercises() {
         //     {/* <ExerciseTable></ExerciseTable> */}
         //     <ExerciseTable lifts={LIFTS}></ExerciseTable>
         // </div>
-        <FilterableExerciseTable lifts={LIFTS}> </FilterableExerciseTable>
+        // <FilterableExerciseTable lifts={LIFTS}> </FilterableExerciseTable>
+        <FilterableExerciseTable> </FilterableExerciseTable>
     );
 }
 
