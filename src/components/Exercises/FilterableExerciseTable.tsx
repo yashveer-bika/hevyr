@@ -5,6 +5,7 @@ import ExerciseTable from "./ExerciseTable";
 import MuscleFilter from "./MuscleFilter";
 import CreateExerciseButton from "./CreateExerciseButton"
 import SearchBar from "./SearchBar";
+// import CreateExerciseWindow from "./CreateExerciseWindow";
 
 function FilterableExerciseTable( {lifts} : any) {
 
