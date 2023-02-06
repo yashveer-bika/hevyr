@@ -1,8 +1,10 @@
 import React from "react";
 import "../../styles/Exercises.css";
-import Dropdown from "../Util/Dropdown";
-// import Dropdown from 'react-bootstrap/Dropdown';
-// import DropdownButton from 'react-bootstrap/DropdownButton';
+// import Dropdown from "../Util/Dropdown";
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function EquipmentFilter() {
@@ -15,33 +17,33 @@ function EquipmentFilter() {
     console.log('clicked two');
   };
 
-  // use my utility Dropdown
-  return (
-    <Dropdown 
-      className="equipmentFilter"
-      trigger={<button>All Equipment</button>}
-      menu={[
-        <button onClick={handleMenuOne}>Menu 1</button>,
-        <button onClick={handleMenuTwo}>Menu 2</button>,
-      ]}
-    />
-  );
-
-
-  // // use react-bootstrap (needs styling)
+  // // use my utility Dropdown
   // return (
-  //   <Dropdown className="d-inline mx-2">
-  //       <Dropdown.Toggle id="dropdown-autoclose-true">
-  //         Default Dropdown
-  //       </Dropdown.Toggle>
-
-  //       <Dropdown.Menu>
-  //         <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-  //         <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-  //         <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-  //       </Dropdown.Menu>
-  //     </Dropdown>
+  //   <Dropdown 
+  //     className="equipmentFilter"
+  //     trigger={<button>All Equipment</button>}
+  //     menu={[
+  //       <button onClick={handleMenuOne}>Menu 1</button>,
+  //       <button onClick={handleMenuTwo}>Menu 2</button>,
+  //     ]}
+  //   />
   // );
+
+
+  // use react-bootstrap (needs styling)
+  return (
+    <Dropdown className="d-inline mx-2">
+        <Dropdown.Toggle id="dropdown-autoclose-true">
+          All Equipment
+        </Dropdown.Toggle>
+
+        <Dropdown.Menu>
+          <Dropdown.Item href="#">Menu Item</Dropdown.Item>
+          <Dropdown.Item href="#">Menu Item</Dropdown.Item>
+          <Dropdown.Item href="#">Menu Item</Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+  );
 
   
   

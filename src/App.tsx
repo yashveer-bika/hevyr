@@ -15,6 +15,9 @@ import Settings from "./pages/Settings";
 import Layout from './pages/Layout';
 import NoPage from './pages/NoPage';
 
+// import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 
 function App() {
   return (
