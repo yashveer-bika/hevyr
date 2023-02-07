@@ -1,5 +1,6 @@
 // import { React, useState } from 'react'
 import data from "./ListData.json"
+import ExerciseRow from "./ExerciseRow";
 
 export default function ExerciseList(props : any) {
 
@@ -11,7 +12,7 @@ export default function ExerciseList(props : any) {
         }
         //return the item which contains the user input
         else {
-            return el.text.toLowerCase().includes(props.input) || el.exercise.toLowerCase().includes(props.input)
+            return el.lift.toLowerCase().includes(props.input) && el.muscle.toLowerCase().includes(props.input)
             // return el.exercise.toLowerCase().includes(props.input)
 
         }
@@ -20,7 +21,10 @@ export default function ExerciseList(props : any) {
     return (
         <ul>
             {filteredData.map((item : any) => (
-                <li key={item.id}>{item.text}</li>
+                <li key={item.id}>
+                    {/* {item.lift} */}
+                    <ExerciseRow props={item}></ExerciseRow>
+                </li>
             ))}
         </ul>
     )

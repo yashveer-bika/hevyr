@@ -6,6 +6,7 @@ import MuscleFilter from "./MuscleFilter";
 import CreateExerciseButton from "./CreateExerciseButton"
 import SearchBar from "./SearchBar";
 // import CreateExerciseWindow from "./CreateExerciseWindow";
+import Table from "./Table";
 
 function FilterableExerciseTable( {lifts} : any) {
 
@@ -23,11 +24,13 @@ function FilterableExerciseTable( {lifts} : any) {
           <CreateExerciseButton></CreateExerciseButton>
         </div>
         
-        <SearchBar></SearchBar>
+        <Table></Table>
 
-        <hr></hr>
+        {/* <SearchBar></SearchBar> */}
+
+        {/* <hr></hr> */}
         
-        <ExerciseTable></ExerciseTable>
+        {/* <ExerciseTable></ExerciseTable> */}
         {/* <ExerciseTable lifts={lifts}></ExerciseTable> */}
     </div>
   );

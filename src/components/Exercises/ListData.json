@@ -1,41 +1,10 @@
-[{
-    "id": 1,
-    "text": "Devpulse"
-    ,"exercise": "bicep curls"
-}, {
-    "id": 2,
-    "text": "Linklinks"
-    ,"exercise": "tricep extensions"
-}, {
-    "id": 3,
-    "text": "Centizu"
-    ,"exercise": "wrist curls"
-}, {
-    "id": 4,
-    "text": "Dynabox"
-    ,"exercise": "wrist extensions"
-}, {
-    "id": 5,
-    "text": "Avaveo"
-    ,"exercise": "hamstring curls"
-}, {
-    "id": 6,
-    "text": "Demivee"
-    ,"exercise": "leg extensions"
-}, {
-    "id": 7,
-    "text": "Jayo"
-    ,"exercise": "hip thrust"
-}, {
-    "id": 8,
-    "text": "Blognation"
-    ,"exercise": "BB back squat"
-}, {
-    "id": 9,
-    "text": "Podcat"
-    ,"exercise": "hack squat"
-}, {
-    "id": 10,
-    "text": "Layo"
-    ,"exercise": "BB OHP"
-}] 
+[
+    {"lift": "21s Bicep Curls", "muscle": "Biceps", "imgPath": "../img/test.jpeg", "id":1 },
+    {"lift": "Ab Scissors", "muscle": "Abdominals", "imgPath": "../img/test.jpeg", "id":1 },
+    {"lift": "Ab Wheel", "muscle": "Abdominals", "imgPath": "../img/test.jpeg", "id":1 },
+    {"lift": "Aerobics", "muscle": "Cardio", "imgPath": "../img/test.jpeg", "id":1 },
+    {"lift": "Arnold Press (Dumbbell)", "muscle": "Shoulders", "imgPath": "../img/test.jpeg", "id":1 },
+    {"lift": "Around the World", "muscle": "Chest", "imgPath": "../img/test.jpeg", "id":1 },
+    {"lift": "Assisted Pistol Squat", "muscle": "Quadriceps", "imgPath": "../img/test.jpeg", "id":1 },
+    {"lift": "Back Extension (GHD)", "muscle": "Lower Back", "imgPath": "../img/test.jpeg", "id":2}
+]

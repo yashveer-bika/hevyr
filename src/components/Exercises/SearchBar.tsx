@@ -17,6 +17,7 @@ import TextField from "@mui/material/TextField";
 import ExerciseList from "./ExerciseList";
 import "../../styles/SearchBar.css";
 
+
 function SearchBar() {
   const [inputText, setInputText] = useState("");
   let inputHandler = (e : any) => {
