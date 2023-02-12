@@ -1,0 +1,9 @@
+[
+    {"pageName": "/", "displayName": "Home"},
+    {"pageName": "/feed", "displayName": "Feed"},
+    {"pageName": "/routines", "displayName": "Routines"},
+    {"pageName": "/exercises", "displayName": "Exercises"},
+    {"pageName": "/profile", "displayName": "Profile"},
+    {"pageName": "/settings", "displayName": "Settings"},
+    {"pageName": "/log", "displayName": "Log"}
+]

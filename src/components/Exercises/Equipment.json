@@ -1,0 +1,13 @@
+[
+    {"id":1, "equipment": "All Equipment" },
+    {"id":2, "equipment": "None" },
+    {"id":3, "equipment": "Barbell" },
+    {"id":4, "equipment": "Dumbbell" },
+    {"id":5, "equipment": "Kettlebell" },
+    {"id":6, "equipment": "Cable" },
+    {"id":7, "equipment": "Machine" },
+    {"id":8, "equipment": "Plate" }, 
+    {"id":9, "equipment": "Resistance Band" }, 
+    {"id":10, "equipment": "Suspension" }, 
+    {"id":11, "equipment": "Other" }
+]

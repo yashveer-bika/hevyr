@@ -3,19 +3,17 @@ import "../../styles/Exercises.css";
 // import Dropdown from "../Util/Dropdown";
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-
+import { useState } from "react";
+import Equipment from "./Equipment.json"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function EquipmentFilter() {
 
-  const handleMenuOne = () => {
-    console.log('clicked one');
-  };
+  const [equipment, setEquipment] = useState("All Equipment");
 
-  const handleMenuTwo = () => {
-    console.log('clicked two');
-  };
+  const handleEquipment = (equipment:string) => setEquipment(equipment);
+
 
   // // use my utility Dropdown
   // return (
@@ -33,16 +31,23 @@ function EquipmentFilter() {
   // use react-bootstrap (needs styling)
   return (
     <Dropdown className="d-inline mx-2">
-        <Dropdown.Toggle id="dropdown-autoclose-true">
-          All Equipment
-        </Dropdown.Toggle>
+      <Dropdown.Toggle id="dropdown-autoclose-true">
+        {equipment}
+      </Dropdown.Toggle>
 
-        <Dropdown.Menu>
-          <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-          <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-          <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
+      <Dropdown.Menu>
+        {
+
+          Equipment.map(
+            (e : any) => 
+            <Dropdown.Item onClick={(() => handleEquipment(e.equipment))}>
+            {/* <Dropdown.Item> */}
+              {e.equipment}
+            </Dropdown.Item>
+          )      
+        }
+      </Dropdown.Menu>
+    </Dropdown>
   );
 
   

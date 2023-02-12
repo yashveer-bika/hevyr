@@ -4,6 +4,7 @@ import React from "react";
 // https://www.robinwieruch.de/react-dropdown/
 // for the code
 
+export const defaultDropDownName = "Select...";
 
 const Dropdown = ({ trigger, menu } : any) => {
     const [open, setOpen] = React.useState(false);

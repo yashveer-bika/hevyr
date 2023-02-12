@@ -3,34 +3,37 @@ import "../../styles/Exercises.css";
 // import Dropdown from "../Util/Dropdown";
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-
+import { useState } from "react";
+import Muscles from "./MuscleGroups.json"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-function MuscleFilter() {
+export default function MuscleFilter() {
 
-  const handleMenuOne = () => {
-    console.log('clicked one');
-  };
+  const [muscle, setMuscle] = useState("All Muscles");
 
-  const handleMenuTwo = () => {
-    console.log('clicked two');
-  };
-
+  const handleMuscle = (muscle:string) => setMuscle(muscle);
 
   // use react-bootstrap (needs styling)
   return (
     <Dropdown className="d-inline mx-2">
-        <Dropdown.Toggle id="dropdown-autoclose-true">
-          All Muscles
-        </Dropdown.Toggle>
+      <Dropdown.Toggle id="dropdown-autoclose-true">
+        {muscle}
+      </Dropdown.Toggle>
 
-        <Dropdown.Menu>
-          <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-          <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-          <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
+      <Dropdown.Menu>
+        {
+
+          Muscles.map(
+            (e : any) => 
+            <Dropdown.Item onClick={(() => handleMuscle(e.muscle))}>
+            {/* <Dropdown.Item> */}
+              {e.muscle}
+            </Dropdown.Item>
+          )      
+        }
+      </Dropdown.Menu>
+    </Dropdown>
   );
 
   
@@ -41,4 +44,3 @@ function MuscleFilter() {
   // );
 }
 
-export default MuscleFilter;

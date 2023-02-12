@@ -1,4 +1,5 @@
 .exerciseTable {
+    display: 'flex';
     flex: 1;
     background: #aaa;
     height: 300px;
@@ -7,10 +8,27 @@
   }
 
 .filterableExerciseTable {
+  display: 'flex';
   width: 700px;
   background: rgb(141, 91, 91);
 }
 
 .searchBar {
+  display: 'flex';
   background: rgb(180, 180, 180);
+}
+
+.div-container-col {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.div-container-col-3 {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.div-container-row {
+  display: grid;
+  grid-template-rows: auto auto;
 }

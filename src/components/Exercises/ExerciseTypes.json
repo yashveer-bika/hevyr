@@ -1,0 +1,9 @@
+[
+    {"id":1, "type": "Weight Reps" },
+    {"id":2, "type": "Reps only" },
+    {"id":3, "type": "Weighted Bodyweight" },
+    {"id":4, "type": "Assisted Bodyweight" },
+    {"id":5, "type": "Duration" },
+    {"id":6, "type": "Distance Duration" },
+    {"id":7, "type": "Weight & Distance" }
+]

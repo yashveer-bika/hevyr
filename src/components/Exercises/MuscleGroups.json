@@ -1,0 +1,23 @@
+[
+    {"id":1, "muscle": "All Muscles" },
+    {"id":2, "muscle": "Abdominals" },
+    {"id":3, "muscle": "Abductors" },
+    {"id":4, "muscle": "Adductors" },
+    {"id":5, "muscle": "Biceps" },
+    {"id":6, "muscle": "Lower Back" },
+    {"id":7, "muscle": "Upper Back" },
+    {"id":8, "muscle": "Cardio" },
+    {"id":9, "muscle": "Chest" },
+    {"id":10, "muscle": "Calves" },
+    {"id":11, "muscle": "Forearms" },
+    {"id":12, "muscle": "Glutes" },
+    {"id":13, "muscle": "Hamstrings" },
+    {"id":14, "muscle": "Lats" },
+    {"id":15, "muscle": "Olympic" },
+    {"id":16, "muscle": "Quadriceps" },
+    {"id":17, "muscle": "Shoulders" },
+    {"id":18, "muscle": "Triceps" },
+    {"id":19, "muscle": "Traps" },
+    {"id":20, "muscle": "Full Body" },
+    {"id":21, "muscle": "Other" }
+]

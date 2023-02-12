@@ -1,0 +1,70 @@
+[
+    {
+        "id":1, 
+        "name": "Squat",
+        "equipment": "Barbell",
+        "sets": [
+            {
+                "id": 1,
+                "weight": "185 lbs",
+                "reps": 5
+            },
+            {
+                "id": 2,
+                "weight": "185 lbs",
+                "reps": 5
+            },
+            {
+                "id": 3,
+                "weight": "185 lbs",
+                "reps": 5
+            }
+        ]
+    },
+
+    {
+        "id":2, 
+        "name": "Bent Over Row",
+        "equipment": "Barbell",
+        "sets": [
+            {
+                "id": 1,
+                "weight": "95 lbs",
+                "reps": 5
+            },
+            {
+                "id": 2,
+                "weight": "95 lbs",
+                "reps": 5
+            },
+            {
+                "id": 3,
+                "weight": "95 lbs",
+                "reps": 5
+            }
+        ]
+    },
+
+    {
+        "id":3, 
+        "name": "Bench Press",
+        "equipment": "Barbell",
+        "sets": [
+            {
+                "id": 1,
+                "weight": "115 lbs",
+                "reps": 5
+            },
+            {
+                "id": 2,
+                "weight": "115 lbs",
+                "reps": 5
+            },
+            {
+                "id": 3,
+                "weight": "115 lbs",
+                "reps": 5
+            }
+        ]
+    }
+]

@@ -7,66 +7,35 @@ import Popup from "../Util/PopUp";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { Dropdown, DropdownButton } from "react-bootstrap";
+import { defaultDropDownName } from "../Util/Dropdown";
+import MuscleGroups from "./MuscleGroups.json";
+import ExerciseTypes from "./ExerciseTypes.json";
+import Equipment from "./Equipment.json";
 
 
 function CreateExerciseButton() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [show, setShow] = useState(false);
+  const [exerciseType, setExerciseType] = useState(defaultDropDownName);
+  const [equipment, setEquipment] = useState(defaultDropDownName);
+  const [primaryMuscleGroup, setPrimaryMuscleGroup] = useState(defaultDropDownName);
 
-  function togglePop() {
-    setIsOpen(!isOpen);
+  function resetCreateExerciseWindow() {
+    setExerciseType(defaultDropDownName);
+    setEquipment(defaultDropDownName);
+    setPrimaryMuscleGroup(defaultDropDownName);
   }
 
-  // old version
-  // return (
-  //   <div>
-  //     <div className="btn" onClick={togglePop}>
-  //       <button>+Create Exercise</button>
-  //     </div>
-  //     {seen ? <CreateExerciseWindow toggle={togglePop} /> : null}
-  //   </div>
-  // );
-
-  // sample version from 
-  // https://www.cluemediator.com/create-simple-popup-in-reactjs
-  // return <div>
-  //   <input
-  //     type="button"
-  //     value="Click to Open Popup"
-  //     onClick={togglePop}
-  //   />
-  //   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  //   {isOpen && <Popup
-  //     content={<>
-  //       <b>Design your Popup</b>
-  //       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  //       <button>Test button</button>
-  //     </>}
-  //     handleClose={togglePop}
-  //   />}
-  // </div>
-
-
-  
-  // return (
-  //   <div>
-  //     <div className="btn" onClick={togglePop}>
-  //       <button>+Create Exercise</button>
-  //     </div>
-  //     {isOpen && <Popup
-  //       content={<>
-  //         <CreateExerciseWindow toggle={togglePop}></CreateExerciseWindow>
-  //       </>}
-  //       handleClose={togglePop}
-  //     />}
-
-  //   </div>
-  // );
-
-  // using Modal
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
+  function handleClose() {
+    setShow(false);
+    resetCreateExerciseWindow();
+    // TODO: write out the exerciseType, equipment and primaryMuscleGroup into the exercise database for the given user
+  }
   const handleShow = () => setShow(true);
+  const handleExerciseType = (exerciseType:string) => setExerciseType(exerciseType);
+  const handleEquipment = (equipment:string) => setEquipment(equipment);
+  const handlePrimaryMuscleGroup = (muscle:string) => setPrimaryMuscleGroup(muscle);
+
+
 
   return (
     <>
@@ -83,59 +52,74 @@ function CreateExerciseButton() {
             <p>Add Image button</p>
             
             <div>
-              <label>
-                Exercise Name:
-                <input type="text" name="name" />
-              </label>
+              <form className="form" id="addExerciseNameForm">
+                <input type="text" className="input" id="addInput" placeholder="Exercise Name..." />
+              </form>
             </div>
 
             <hr></hr>
 
             <div>
               Exercise Type
-              <Dropdown className="d-inline mx-2" autoClose="outside">
+              <Dropdown className="d-inline mx-2">
                   <Dropdown.Toggle id="dropdown-autoclose-true">
-                    Select...
+                    {exerciseType}
                   </Dropdown.Toggle>
 
                   <Dropdown.Menu>
-                    <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-                    <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-                    <Dropdown.Item href="#">Menu Item</Dropdown.Item>
+                    {
+                      ExerciseTypes.map(
+                        (e : any) => 
+                        <Dropdown.Item onClick={(() => handleExerciseType(e.type))}>
+                        {/* <Dropdown.Item> */}
+                          {e.type}
+                        </Dropdown.Item>
+                      )
+                    }
                   </Dropdown.Menu>
                 </Dropdown>
             </div>
 
-            <hr></hr>
 
             <div>
               Equipment
-              <Dropdown className="d-inline mx-2" autoClose="outside">
+              <Dropdown className="d-inline mx-2">
                   <Dropdown.Toggle id="dropdown-autoclose-true">
-                    Select...
+                    {equipment}
                   </Dropdown.Toggle>
 
                   <Dropdown.Menu>
-                    <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-                    <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-                    <Dropdown.Item href="#">Menu Item</Dropdown.Item>
+                    {
+                      Equipment.map(
+                        (e : any) => 
+                        <Dropdown.Item onClick={(() => handleEquipment(e.equipment))}>
+                        {/* <Dropdown.Item> */}
+                          {e.equipment}
+                        </Dropdown.Item>
+                      )
+                    }
                   </Dropdown.Menu>
                 </Dropdown>
             </div>
-
             <hr></hr>
 
             <div>
               Primary muscle group
-              <Dropdown className="d-inline mx-2" autoClose="outside">
+              <Dropdown className="d-inline mx-2">
                   <Dropdown.Toggle id="dropdown-autoclose-true">
-                    Select...
+                    {primaryMuscleGroup}
                   </Dropdown.Toggle>
 
                   <Dropdown.Menu>
-                    <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-                    <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-                    <Dropdown.Item href="#">Menu Item</Dropdown.Item>
+                    {
+                      MuscleGroups.map(
+                        (e : any) => 
+                        <Dropdown.Item onClick={(() => handlePrimaryMuscleGroup(e.muscle))}>
+                        {/* <Dropdown.Item> */}
+                          {e.muscle}
+                        </Dropdown.Item>
+                      )
+                    }
                   </Dropdown.Menu>
                 </Dropdown>
             </div>

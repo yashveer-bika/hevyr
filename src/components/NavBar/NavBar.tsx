@@ -9,7 +9,6 @@ import "../../styles/NavBar.css"
 // TODO: if I have issues, it may be the `any` type
 function Navbar( {pages} : any) {
   const buttons : any = [];
-
   pages.forEach( (pg : any) => {
     buttons.push(
       <Button pageName={pg.pageName} displayName={pg.displayName} />
