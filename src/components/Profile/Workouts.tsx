@@ -6,6 +6,7 @@ import WorkoutCell from "./WorkoutCell";
 import { JSXElementConstructor, ReactElement, ReactFragment, useState } from "react";
 import { Alert, Button } from "react-bootstrap";
 import CommentCell from "./CommentCell";
+import { TextField } from "@mui/material";
 
 export default function Workouts() {
   // TODO: get the WorkoutCells
@@ -57,6 +58,13 @@ export default function Workouts() {
       <CommentCell props={comment}/>
     );
   });
+
+  // const [writeCommentText, setWriteCommentText] = useState("");
+  // let inputHandler = (e : any) => {
+  //   //convert input text to lower case
+  //   var lowerCase = e.target.value.toLowerCase();
+  //   setWriteCommentText(lowerCase);
+  // };
 
 
 
@@ -161,9 +169,34 @@ export default function Workouts() {
 
                 </div>
 
-                <div className="div-container-col"> 
-                  <div> PROFILE PHOTO </div>
-                  <div> Write a comment... </div>
+                <div className="add-comment-bar"> 
+
+                  <div>
+                    <img src={TestImg} alt="test-img" className="comment-profile-photo" />
+                  </div>
+
+                  <div className="write-comment-box">
+                    {/* <TextField
+                      id="outlined-basic"
+                      onChange={inputHandler}
+                      variant="outlined"
+                      fullWidth
+                      label="Search"
+                    /> */}
+                    <form onSubmit={() => console.log("waa")}>
+                      
+                      <label className="commentText" htmlFor={'commentText'}>
+                        
+                        <div className={"commentText"}>
+                          <input type="text" id="commentText" name="commentText" placeholder={"Write a comment..."} />
+                        </div>
+                        
+                      </label>
+
+                    </form>
+
+                  </div>
+
                 </div>
               </div>
             

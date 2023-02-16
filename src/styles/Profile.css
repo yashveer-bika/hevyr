@@ -181,3 +181,45 @@
     flex-direction: column;
     gap: 10px;
 }
+
+.comment-text {
+    color: grey;
+}
+
+.comment-right-side {
+    /* justify-items: right; */
+    text-align: right;
+    /* align-items: right; */
+}
+
+.comment-post-time {
+    font-size: 10pt;
+}
+
+/* .comment-delete-button {
+    justify-content: right;
+} */
+
+.add-comment-bar {
+    display: flex;
+    grid-template-columns: auto auto;
+    /* justify-content: center; */
+    /* align-content: space-around; */
+    column-gap: 20px;
+    margin: 0 auto;
+
+}
+
+.write-comment-box {
+    justify-content: right;
+}
+
+.commentText {
+    outline-color: white;
+    color: green;
+}
+
+.comment-profile-photo {
+    width: 60px;
+}
+

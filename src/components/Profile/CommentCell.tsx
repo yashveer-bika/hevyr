@@ -1,9 +1,16 @@
 import React from "react";
 import "../../styles/Profile.css";
 import TestImage from '../../assets/test.jpg'
+import { DropdownButton } from "react-bootstrap";
+
 
 // TODO: dynamically load images 
 export default function CommentCell({props} : any) {
+
+  function showDeleteCommentButton() {
+
+  }
+
   // TODO: calculate time since posting
 
   // TODO: write delete comment popup and logic
@@ -17,21 +24,34 @@ export default function CommentCell({props} : any) {
           <img src={TestImage} alt="TODO: HOW TO NAME?" className="commenter-profile-photo"></img>
         </div>
 
-        <div className="comment-username">
-          {props.userName}
-        </div>
+        <div>
+          <div className="comment-username">
+            {props.userName}
+          </div>
 
-        <div className="comment-text">
-          {props.text}
+          <div className="comment-text">
+            {props.text}
+          </div>
         </div>
+        
+        <div className="comment-right-side">
+          <div className="comment-post-time">
+            time
+          </div>
 
-        <div className="comment-post-time">
-          time
-        </div>
+          <div className="comment-delete-button">
+            <DropdownButton 
+              variant="light" 
+              onClick={showDeleteCommentButton} 
+              title={`...`}
+              drop="start"
+              bsPrefix="dropdown-button"
+            >
 
-        <div className="comment-delete-button">
-          delete this comment button
+            </DropdownButton>
+          </div>
         </div>
+        
         
       </div>
   );

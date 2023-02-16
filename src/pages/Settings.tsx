@@ -1,12 +1,13 @@
 import React from 'react';
 import Navbar from '../components/NavBar/NavBar';
+import SettingScreenContainer from '../components/Settings/SettingScreenContainer';
 import Pages from "./Pages.json";
 
 function Settings() {
     return (
         <div>
             <Navbar pages={ Pages } />
-            <h1>this is the Settings page</h1>
+            <SettingScreenContainer/>
         </div>
     );
 }

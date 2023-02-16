@@ -1,0 +1,41 @@
+.setting-screen-container {
+    display: flex;
+}
+
+.setting-screen-left-container {
+    display: flex;
+    flex-direction: column;
+    border: 2mm;
+    border-style: solid;
+}
+
+.setting-screen-right-container {
+    display: flex;
+    flex-direction: column;
+    border: 2mm;
+    border-style: solid;
+}
+
+.export-note {
+    color: grey;
+}
+
+.sub-text {
+    color: grey;
+    max-width: 400px;
+}
+
+.data-button-container {
+    text-align: center;
+}
+
+
+.unit-note {
+    display: flex;
+    max-width: 400px;
+    justify-content: space-between;  
+}
+
+.unit-dropdown-button {
+    width: 100px;
+}
