@@ -4,12 +4,12 @@ import "../../styles/Settings.css"
 import { useState } from "react";
 
 export default function SettingScreenContainer() {
-    const [activePage, setActivePage] = useState("Profile");
+    const [activeIndex, setActiveIndex] = useState(0);
 
     return (
         <div className="setting-screen-container">
-            <SettingScreenLeftContainer active={activePage} />
-            <SettingScreenRightContainer active={activePage} />
+            <SettingScreenLeftContainer activeIndex={activeIndex} onShow={(i : number)=>setActiveIndex(i)} />
+            <SettingScreenRightContainer activeIndex={activeIndex} />
         </div>
     );
 }

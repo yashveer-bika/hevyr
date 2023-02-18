@@ -2,24 +2,24 @@ import SettingCell from "./SettingCell"
 import "../../styles/Settings.css"
 
 
-export default function SettingScreenLeftContainer(props: any) {
+export default function SettingScreenLeftContainer({activeIndex, onShow}: any) {
 
 
     return (
         <div className="setting-screen-left-container">
             {/* Account */}
-            <SettingCell name="Profile" redirect="profile" img={'/icons8-user-96.png'} active={props.active === "Profile"} ></SettingCell>
+            <SettingCell name="Profile" img={'/icons8-user-96.png'} active={activeIndex === 0} onShow={() => onShow(0)} ></SettingCell>
             <hr></hr>
-            <SettingCell name="Account" redirect="TODO: linking to Account right container" img={'/icons8-lock.svg'} active={props.active === "Account"} ></SettingCell>
+            <SettingCell name="Account" img={'/icons8-lock.svg'} active={activeIndex === 1} onShow={() => onShow(1)}  ></SettingCell>
             <hr></hr>
-            <SettingCell name="Manage Subscription" redirect="TODO: linking to Manage Subscription right container" img="TODO: find img" active={props.active === "Subscription"} ></SettingCell>
+            <SettingCell name="Manage Subscription" img="TODO: find img" active={activeIndex === 2} onShow={() => onShow(2)} ></SettingCell>
             <hr></hr>           
             {/* Preferences */}
-            <SettingCell name="Units" redirect="TODO: linking to Units right container" img="TODO: find img" active={props.active === "Units"} ></SettingCell>
+            <SettingCell name="Units" img="TODO: find img" active={activeIndex === 3} onShow={() => onShow(3)} ></SettingCell>
             <hr></hr>
-            <SettingCell name="Theme" redirect="TODO: linking to Theme right container" img="TODO: find img" active={props.active === "Theme"} ></SettingCell>
+            <SettingCell name="Theme" img="TODO: find img" active={activeIndex === 4} onShow={() => onShow(4)} ></SettingCell>
             <hr></hr>
-            <SettingCell name="Export Data" redirect="TODO: linking to Export Data right container" img="TODO: find img" active={props.active === "Data"} ></SettingCell>
+            <SettingCell name="Export Data" img="TODO: find img" active={activeIndex === 5} onShow={() => onShow(5)} ></SettingCell>
             <hr></hr>
         </div>
     );

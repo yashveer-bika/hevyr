@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { Button, Dropdown, DropdownButton, Form } from "react-bootstrap";
-import DropdownItem from "react-bootstrap/esm/DropdownItem";
+import { Button, Dropdown, Form } from "react-bootstrap";
 import "../../styles/Settings.css"
 import TestImage from '../../assets/test.jpg'
 import axios from "axios";
 
 
-export default function SettingScreenRightContainer(props: any) {
+export default function SettingScreenRightContainer({activeIndex}: any) {
     const [theme, setTheme] = useState("Light");
     const [weightUnit, setWeightUnit] = useState("lbs");
     const [distanceUnit, setDistanceUnit] = useState("miles");
@@ -80,8 +79,7 @@ export default function SettingScreenRightContainer(props: any) {
         */
     }
 
-    const pages = {
-        "Profile":
+    const pages = [
             (
                 <div className="setting-screen-right-container">
                     <div className="profile-pic-container"> 
@@ -93,9 +91,21 @@ export default function SettingScreenRightContainer(props: any) {
                             <button type="submit">Upload</button>
                         </form>
                     </div>
+
+                    <div>
+                        Name 
+                        <input name="firstName" />
+                    </div>
+                    <div>
+                        Bio
+                        <input name="firstName" />
+                    </div>
+
+                    <div>
+                        Save changes button
+                    </div>
                 </div>
             ), 
-        "Account": 
             (
                 <div className="setting-screen-right-container">
                     <div className="unit-note">
@@ -151,13 +161,11 @@ export default function SettingScreenRightContainer(props: any) {
                     </div>
                 </div>
             ), 
-        "Subscription": 
             (
                 <div className="setting-screen-right-container">
                     TODO: set up Stripe API stuff to set up payment
                 </div>
             ), 
-        "Units": 
             (
                 <div className="setting-screen-right-container">
                     <div className="unit-note">
@@ -244,7 +252,6 @@ export default function SettingScreenRightContainer(props: any) {
 
                 </div>
             ), 
-        "Theme": 
             (
                 <div className="setting-screen-right-container">
                     <div className="theme-note">
@@ -275,7 +282,6 @@ export default function SettingScreenRightContainer(props: any) {
 
                 </div>
             ), 
-        "Data": 
             (
                 <div className="setting-screen-right-container">
                     <h3>
@@ -293,10 +299,12 @@ export default function SettingScreenRightContainer(props: any) {
                     </div>
                 </div>
             )
-    }
+    ]
+
+    // const idx : number = activeIndex;
 
     // TODO: make the right side dynamically switch
     return (
-        pages["Profile"]
+        pages[activeIndex]
     );
 }

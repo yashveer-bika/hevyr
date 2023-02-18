@@ -1,12 +1,14 @@
 import { NavLink } from "react-router-dom";
+import "../../styles/Settings.css"
 
-export default function SettingCell(props : any) {
+export default function SettingCell({img, name, active, onShow} : any) {
+
+    // TODO: give a highlight if active
 
     return (
-        <div>
-           <img src={props.img} alt=""/>
-           {props.name}
-           {props.redirect}
+        <div onClick={onShow} className={active ? "active-cell" : "non-active-cell"}>
+           <img src={img} alt=""/>
+           {name}
         </div>
     );
 }

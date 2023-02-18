@@ -39,3 +39,11 @@
 .unit-dropdown-button {
     width: 100px;
 }
+
+.active-cell {
+    color: green;
+} 
+
+.non-active-cell {
+    color: black;
+}
