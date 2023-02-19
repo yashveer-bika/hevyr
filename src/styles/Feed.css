@@ -1,0 +1,159 @@
+/* .feed-screen-container {
+    display: grid;
+    grid-template-columns: auto auto;
+} */
+
+.feed-screen-container {
+    /* display: grid;
+    grid-template-columns: auto auto; */
+    /* display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr; */
+    
+    /* display: table;
+    width: 100%; 
+    table-layout: fixed; 
+    align-self: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    justify-self: center; */
+
+    /* justify-content: center;
+    align-items: center; */
+
+    /* margin: auto;
+    width: 60%;
+    border: 3px solid #73AD21;
+    padding: 10px; */
+
+    /* padding: 70px 0;
+    border: 3px solid green;
+    text-align: center; */
+
+    /* display: grid;
+    grid-auto-flow: column */
+
+    display: flex;
+    justify-content: center
+}
+
+/* Responsive layout - makes a one column layout instead of a two-column layout */
+@media (max-width: 800px) {
+    .feed-screen-container {
+      flex-direction: column;
+    }
+  }
+
+.feed-container {
+    /* float: left */
+    /* display: flex;
+    flex-direction: column;
+    border: 2mm;
+    border-style: solid; */
+    /* grid-row: 1 / 3;
+    grid-column: 1 / 3; */
+
+    /* display: table-cell; */
+    border: 10px;
+    border-style: solid;
+}
+
+.athlete-search-box {
+    /* float: left */
+    /* display: flex;
+    flex-direction: column;
+    border: 2mm;
+    border-style: solid; */
+    /* grid-row: 1 / 3;
+    grid-column: 1 / 3; */
+
+    /* display: table-cell; */
+    margin: 10px;
+    /* border-style: solid; */
+    /* border: 10px; */
+    /* position:fixed; */
+    float:right
+}
+
+.workout-photo {
+    width: 100%;
+    /* background-size: cover; */
+    /* object-fit: contain; */
+}
+
+.comment-cell {
+    display: flex;
+    gap: 10px
+}
+
+.commenter-profile-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.comment-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.comment-text {
+    color: grey;
+}
+
+.comment-right-side {
+    /* justify-items: right; */
+    text-align: right;
+    /* align-items: right; */
+}
+
+.comment-post-time {
+    font-size: 10pt;
+}
+
+/* .comment-delete-button {
+    justify-content: right;
+} */
+
+.add-comment-bar {
+    display: flex;
+    grid-template-columns: auto auto;
+    /* justify-content: center; */
+    /* align-content: space-around; */
+    column-gap: 20px;
+    margin: 0 auto;
+
+}
+
+.write-comment-box {
+    justify-content: right;
+}
+
+.commentText {
+    outline-color: white;
+    color: green;
+}
+
+.comment-profile-photo {
+    width: 60px;
+}
+
+.profile-cell {
+    display: flex;
+    margin: 10px;
+    gap: 10px;
+}
+
+.profile-photo {
+    width: 60px;
+}
+
+.username {
+
+}
+
+.true-name {
+    color: grey;
+}

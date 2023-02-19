@@ -5,7 +5,7 @@ import { DropdownButton } from "react-bootstrap";
 
 
 // TODO: dynamically load images 
-export default function CommentCell({userName, text} : any) {
+export default function CommentCell({props} : any) {
 
   function showDeleteCommentButton() {
 
@@ -26,11 +26,11 @@ export default function CommentCell({userName, text} : any) {
 
         <div>
           <div className="comment-username">
-            {userName}
+            {props.userName}
           </div>
 
           <div className="comment-text">
-            {text}
+            {props.text}
           </div>
         </div>
         
