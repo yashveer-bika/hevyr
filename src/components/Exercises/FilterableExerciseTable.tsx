@@ -1,26 +1,26 @@
-import React from "react";
+// import React from "react";
 import "../../styles/Exercises.css";
 import EquipmentFilter from "./EquipmentFilter";
-import ExerciseTable from "./ExerciseTable";
+// import ExerciseTable from "./ExerciseTable";
 import MuscleFilter from "./MuscleFilter";
 import CreateExerciseButton from "./CreateExerciseButton"
-import SearchBar from "./SearchBar";
+// import SearchBar from "./SearchBar";
 // import CreateExerciseWindow from "./CreateExerciseWindow";
 import Table from "./Table";
 
-function FilterableExerciseTable( {lifts} : any) {
+function FilterableExerciseTable() {
 
   return (
     <div className="filterableExerciseTable">
-        <h1>this is the exercises page</h1>
-        <div>
-          <a> Filters </a>
+
+        <div className="filters-container">
+          <div> Filters </div>
           <EquipmentFilter></EquipmentFilter>
           <MuscleFilter></MuscleFilter>
         </div>
         
-        <div>
-          <a> Library </a>
+        <div className="library-create-exercise-header">
+          <div className="library-header">Library</div> 
           <CreateExerciseButton></CreateExerciseButton>
         </div>
         

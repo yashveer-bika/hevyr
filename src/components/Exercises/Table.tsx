@@ -1,15 +1,15 @@
 import * as React from 'react';
-import AddItemSection from './AddItemSection';
+// import AddItemSection from './AddItemSection';
 // import './App.css';
 import List from './List';
 import ListData from './ListData.json';
-import MuscleGroups from './MuscleGroups.json';
+// import MuscleGroups from './MuscleGroups.json';
 
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
-import { Dropdown, DropdownButton } from "react-bootstrap";
+// import Modal from 'react-bootstrap/Modal';
+// import Button from 'react-bootstrap/Button';
+// import { Dropdown, DropdownButton } from "react-bootstrap";
 import "../../styles/Exercises.css";
-import CreateExerciseButton from './CreateExerciseButton';
+// import CreateExerciseButton from './CreateExerciseButton';
 
 
 export type ListElement = { lift: string; muscle: string; imgPath: string; id: number; }
@@ -59,7 +59,7 @@ class Table extends React.Component<Props,State> {
     } 
 
     // If our input has a unique value
-    if(newItem.value!="" && !(this.state.list.map(getLift)).includes(newItem.value))
+    if(newItem.value!=="" && !(this.state.list.map(getLift)).includes(newItem.value))
     {
       // Add the new item to the end of our list array
       list.push( { lift: newItem.value, muscle:"", imgPath:"", id:0});

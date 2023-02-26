@@ -1,10 +1,16 @@
 [
-    {"lift": "21s Bicep Curls", "muscle": "Biceps", "imgPath": "../img/test.jpeg", "id":1 },
-    {"lift": "Ab Scissors", "muscle": "Abdominals", "imgPath": "../img/test.jpeg", "id":1 },
-    {"lift": "Ab Wheel", "muscle": "Abdominals", "imgPath": "../img/test.jpeg", "id":1 },
-    {"lift": "Aerobics", "muscle": "Cardio", "imgPath": "../img/test.jpeg", "id":1 },
+    {"lift": "21s Bicep Curls",     "muscle": "Biceps", "imgPath": "../img/test.jpeg", "id":1 },
+    {"lift": "Ab Scissors",         "muscle": "Abdominals", "imgPath": "../img/test.jpeg", "id":1 },
+    {"lift": "Ab Wheel",            "muscle": "Abdominals", "imgPath": "../img/test.jpeg", "id":1 },
+    {"lift": "Aerobics",            "muscle": "Cardio", "imgPath": "../img/test.jpeg", "id":1 },
     {"lift": "Arnold Press (Dumbbell)", "muscle": "Shoulders", "imgPath": "../img/test.jpeg", "id":1 },
     {"lift": "Around the World", "muscle": "Chest", "imgPath": "../img/test.jpeg", "id":1 },
     {"lift": "Assisted Pistol Squat", "muscle": "Quadriceps", "imgPath": "../img/test.jpeg", "id":1 },
-    {"lift": "Back Extension (GHD)", "muscle": "Lower Back", "imgPath": "../img/test.jpeg", "id":2}
+    {"lift": "Back Extension (GHD)", "muscle": "Lower Back", "imgPath": "../img/test.jpeg", "id":2}, 
+    {"lift": "Back Extension (Machine)", "muscle": "Lower Back", "imgPath": "../img/test.jpeg", "id":2}, 
+    {"lift": "Back Extension (Roman Chair)", "muscle": "Lower Back", "imgPath": "../img/test.jpeg", "id":2}, 
+    {"lift": "Back Extension (GHD)", "muscle": "Lower Back", "imgPath": "../img/test.jpeg", "id":2}, 
+    {"lift": "Ball Slams", "muscle": "Full Body", "imgPath": "../img/test.jpeg", "id":2}, 
+    {"lift": "Band Pullaparts", "muscle": "Shoulders", "imgPath": "../img/test.jpeg", "id":2}, 
+    {"lift": "Behind the Back Barbell Wrist Curl", "muscle": "Forearms", "imgPath": "../img/test.jpeg", "id":2}
 ]

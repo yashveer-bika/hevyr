@@ -1,6 +1,7 @@
-import React from 'react';
-import ExerciseTable from '../components/Exercises/ExerciseTable';
-import FilterableExerciseTable from '../components/Exercises/FilterableExerciseTable';
+// import React from 'react';
+import ExercisePageContainer from '../components/Exercises/ExercisePageContainer';
+// import ExerciseTable from '../components/Exercises/ExerciseTable';
+// import FilterableExerciseTable from '../components/Exercises/FilterableExerciseTable';
 import Navbar from '../components/NavBar/NavBar';
 import Pages from "./Pages.json";
 
@@ -16,7 +17,7 @@ function Exercises() {
         // <FilterableExerciseTable lifts={LIFTS}> </FilterableExerciseTable>
         <div>
             <Navbar pages={ Pages } />
-            <FilterableExerciseTable> </FilterableExerciseTable>
+            <ExercisePageContainer></ExercisePageContainer>
         </div>
     );
 }

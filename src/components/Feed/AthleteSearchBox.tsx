@@ -4,7 +4,6 @@ import TextField from "@mui/material/TextField";
 import ProfileCell from "./ProfileCell";
 import TestImg from "../../assets/test.jpg"
 
-
 export default function AthleteSearchBox() {
     const [inputText, setInputText] = useState("");
     let inputHandler = (e : any) => {
@@ -56,10 +55,7 @@ export default function AthleteSearchBox() {
                     </div>
                 </div>
             }
-
-    
             
         </div>
     );
 }
-

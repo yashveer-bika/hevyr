@@ -57,17 +57,28 @@ class List extends React.Component<ListProps,ListState> {
   render() {
     console.log(this.props.items)
     return (
-        <div>
-          <input type="text" className="input" placeholder="Search..." onChange={this.handleChange} />
-          <ul>
+        <div className='list'>
+          <input type="text" className="input" placeholder="Search Exercises" onChange={this.handleChange} />
+          
+
+          {/* <ul>
             {this.state.filtered.map((item: ({ lift: string; muscle: string; imgPath: string; id: number; } )) => (
               <li key={item.lift}>
-                {/* {item.lift} &nbsp; */}
                 <ExerciseRow props={item}></ExerciseRow>
-                {/* <span className="" onClick={() => this.props.delete(item)} >x</span> */}
               </li>
             ))}
-          </ul>
+          </ul> */}
+
+          <div className="exercise-rows">
+            {this.state.filtered.map((item: ({ lift: string; muscle: string; imgPath: string; id: number; } )) => (
+      
+              <ExerciseRow props={item}></ExerciseRow>
+                
+            ))}
+          </div>
+
+            
+
         </div>
       )
   

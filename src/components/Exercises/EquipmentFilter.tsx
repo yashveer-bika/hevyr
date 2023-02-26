@@ -2,7 +2,7 @@ import React from "react";
 import "../../styles/Exercises.css";
 // import Dropdown from "../Util/Dropdown";
 import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
+// import DropdownButton from 'react-bootstrap/DropdownButton';
 import { useState } from "react";
 import Equipment from "./Equipment.json"
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -30,24 +30,26 @@ function EquipmentFilter() {
 
   // use react-bootstrap (needs styling)
   return (
-    <Dropdown className="d-inline mx-2">
-      <Dropdown.Toggle id="dropdown-autoclose-true">
-        {equipment}
-      </Dropdown.Toggle>
+    <div className="equipment-filter">
+      <Dropdown className="d-inline mx-2">
+        <Dropdown.Toggle id="dropdown-autoclose-true">
+          {equipment}
+        </Dropdown.Toggle>
 
-      <Dropdown.Menu>
-        {
+        <Dropdown.Menu>
+          {
 
-          Equipment.map(
-            (e : any) => 
-            <Dropdown.Item onClick={(() => handleEquipment(e.equipment))}>
-            {/* <Dropdown.Item> */}
-              {e.equipment}
-            </Dropdown.Item>
-          )      
-        }
-      </Dropdown.Menu>
-    </Dropdown>
+            Equipment.map(
+              (e : any) => 
+              <Dropdown.Item onClick={(() => handleEquipment(e.equipment))}>
+              {/* <Dropdown.Item> */}
+                {e.equipment}
+              </Dropdown.Item>
+            )      
+          }
+        </Dropdown.Menu>
+      </Dropdown>
+    </div>
   );
 
   

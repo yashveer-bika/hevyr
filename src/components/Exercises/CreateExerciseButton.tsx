@@ -1,16 +1,20 @@
 import React, {useState} from "react";
 import "../../styles/Exercises.css";
-import { createPortal } from 'react-dom';
+// import { createPortal } from 'react-dom';
 // import CreateExerciseWindow from "./CreateExerciseWindow";
-import Popup from "../Util/PopUp";
+// import Popup from "../Util/PopUp";
 
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import { Dropdown, DropdownButton } from "react-bootstrap";
+import { Dropdown } from "react-bootstrap";
 import { defaultDropDownName } from "../Util/Dropdown";
 import MuscleGroups from "./MuscleGroups.json";
 import ExerciseTypes from "./ExerciseTypes.json";
 import Equipment from "./Equipment.json";
+import axios from "axios";
+
+import ImageUpload from "../ImageUpload";
+
 
 
 function CreateExerciseButton() {
@@ -18,6 +22,7 @@ function CreateExerciseButton() {
   const [exerciseType, setExerciseType] = useState(defaultDropDownName);
   const [equipment, setEquipment] = useState(defaultDropDownName);
   const [primaryMuscleGroup, setPrimaryMuscleGroup] = useState(defaultDropDownName);
+  const [selectedFile, setSelectedFile] = useState(null);
 
   function resetCreateExerciseWindow() {
     setExerciseType(defaultDropDownName);
@@ -36,9 +41,8 @@ function CreateExerciseButton() {
   const handlePrimaryMuscleGroup = (muscle:string) => setPrimaryMuscleGroup(muscle);
 
 
-
   return (
-    <>
+    <div className="create-exercise-button">
       <Button variant="primary" onClick={handleShow}>
         + Create Exercise
       </Button>
@@ -48,8 +52,16 @@ function CreateExerciseButton() {
           <Modal.Title>Create Exercise</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+
             <p>Circle spot to show image</p>
-            <p>Add Image button</p>
+
+
+            {/* <p>Add Image button</p> */}
+            {/* TODO: set up file upload button */}
+            <div> 
+              <ImageUpload />
+            </div>
+            
             
             <div>
               <form className="form" id="addExerciseNameForm">
@@ -59,9 +71,13 @@ function CreateExerciseButton() {
 
             <hr></hr>
 
-            <div>
-              Exercise Type
-              <Dropdown className="d-inline mx-2">
+            <div className="title-dropdown-pair">
+              <div>
+                Exercise Type
+              </div>
+
+              <div>
+                <Dropdown className="d-inline mx-2">
                   <Dropdown.Toggle id="dropdown-autoclose-true">
                     {exerciseType}
                   </Dropdown.Toggle>
@@ -78,12 +94,20 @@ function CreateExerciseButton() {
                     }
                   </Dropdown.Menu>
                 </Dropdown>
+              </div>
+              
             </div>
 
+            <hr></hr>
 
-            <div>
-              Equipment
-              <Dropdown className="d-inline mx-2">
+
+            <div className="title-dropdown-pair">
+             <div>
+                Equipment
+              </div>
+
+              <div>
+                <Dropdown className="d-inline mx-2">
                   <Dropdown.Toggle id="dropdown-autoclose-true">
                     {equipment}
                   </Dropdown.Toggle>
@@ -100,12 +124,18 @@ function CreateExerciseButton() {
                     }
                   </Dropdown.Menu>
                 </Dropdown>
+              </div>
+              
             </div>
             <hr></hr>
 
-            <div>
-              Primary muscle group
-              <Dropdown className="d-inline mx-2">
+            <div className="title-dropdown-pair">
+              <div>
+                Primary muscle group
+              </div>
+
+              <div>
+                <Dropdown className="d-inline mx-2">
                   <Dropdown.Toggle id="dropdown-autoclose-true">
                     {primaryMuscleGroup}
                   </Dropdown.Toggle>
@@ -122,13 +152,19 @@ function CreateExerciseButton() {
                     }
                   </Dropdown.Menu>
                 </Dropdown>
+              </div>
+              
             </div>
             
             <hr></hr>
 
-            <div>
-              Other muscles
-              <Dropdown className="d-inline mx-2" autoClose="outside">
+            <div className="title-dropdown-pair">
+              <div>
+                Other muscles
+              </div>
+
+              <div>
+                <Dropdown className="d-inline mx-2" autoClose="outside">
                   <Dropdown.Toggle id="dropdown-autoclose-true">
                     Select...
                   </Dropdown.Toggle>
@@ -139,6 +175,8 @@ function CreateExerciseButton() {
                     <Dropdown.Item href="#">Menu Item</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
+              </div>
+              
             </div>
           
           
@@ -153,7 +191,7 @@ function CreateExerciseButton() {
           </Button>
         </Modal.Footer>
       </Modal>
-    </>
+    </div>
   );
 
 

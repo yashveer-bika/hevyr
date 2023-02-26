@@ -57,6 +57,10 @@
     /* display: table-cell; */
     border: 10px;
     border-style: solid;
+    overflow-y: auto;
+    height: 95vh;
+    width: 45vw
+    /* gap: 10px; */
 }
 
 .athlete-search-box {
@@ -73,7 +77,28 @@
     /* border-style: solid; */
     /* border: 10px; */
     /* position:fixed; */
-    float:right
+    float:right;
+    overflow-y: auto;
+    height: 75vh;
+
+}
+
+.profile-cell {
+    display: flex;
+    margin: 10px;
+    gap: 10px;
+}
+
+.profile-photo {
+    width: 60px;
+}
+
+.username {
+
+}
+
+.true-name {
+    color: grey;
 }
 
 .workout-photo {
@@ -138,22 +163,4 @@
 
 .comment-profile-photo {
     width: 60px;
-}
-
-.profile-cell {
-    display: flex;
-    margin: 10px;
-    gap: 10px;
-}
-
-.profile-photo {
-    width: 60px;
-}
-
-.username {
-
-}
-
-.true-name {
-    color: grey;
 }

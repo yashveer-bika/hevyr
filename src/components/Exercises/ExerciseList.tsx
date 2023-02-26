@@ -18,15 +18,23 @@ export default function ExerciseList(props : any) {
         }
     })
 
+    const exerciseRows = filteredData.map((item : any) => (
+        <ExerciseRow props={item}></ExerciseRow>
+    ));
+
     return (
-        <ul>
-            {filteredData.map((item : any) => (
-                <li key={item.id}>
-                    {/* {item.lift} */}
-                    <ExerciseRow props={item}></ExerciseRow>
-                </li>
-            ))}
-        </ul>
+        <div className="exercise-list">
+            {/* <ul>
+                {filteredData.map((item : any) => (
+                    <li key={item.id}>
+                        <ExerciseRow props={item}></ExerciseRow>
+                    </li>
+                ))}
+            </ul> */}
+
+                {exerciseRows}
+        </div>
+        
     )
 }
 

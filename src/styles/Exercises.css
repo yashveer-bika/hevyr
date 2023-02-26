@@ -1,21 +1,74 @@
-.exerciseTable {
-    display: 'flex';
-    flex: 1;
-    background: #aaa;
-    height: 300px;
-    width: 500px;
-    overflow-y: scroll;
-  }
+.exercise-page-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  /* align-items: center; */
+}
 
 .filterableExerciseTable {
-  display: 'flex';
-  width: 700px;
-  background: rgb(141, 91, 91);
+  display: flex;
+  flex-direction: column;
+  /* width: 700px; */
+  /* background: grey; */
+  /* justify-content: center;
+  align-items: center; */
+  gap: 5px;
+  padding: 10px;
+  border: 10px;
+  border-style: solid;
+  height: 95vh;
+  width: 20vw;
+}
+
+/* TODO: Check if this works as intended */
+@media only screen and (max-width: 1500px) {
+  #filterableExerciseTable {
+      display: none;
+  }
+}
+
+.filters-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.muscle-filter {
+  display: flex;
+}
+
+.equipment-filter {
+  display: flex;
+}
+
+.library-create-exercise-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* .library-header {
+  float: left;
+}
+
+.create-exercise-button {
+  float: right;
+} */
+
+.title-dropdown-pair {
+  display: flex;
+  justify-content: space-between;
 }
 
 .searchBar {
   display: 'flex';
-  background: rgb(180, 180, 180);
+  /* background: rgb(180, 180, 180); */
+}
+
+.exercise-rows {
+  height: 68vh;
+  overflow-y: auto;
 }
 
 .div-container-col {
@@ -31,4 +84,93 @@
 .div-container-row {
   display: grid;
   grid-template-rows: auto auto;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.exercise-list {
+  display: flex;
+  overflow-y:auto;
+}
+
+.exercise-row {
+  display: flex;
+  gap: 10px;
+  margin: 10px;
+  padding-left: 10px;
+  height: 10vh;
+  background-color: white; 
+  align-items: center;
+}
+
+/* Change the color of links on hover */
+.exercise-row:hover {
+  background-color: rgb(224,224,224); 
+}
+
+.exercise-photo-container {
+  display: flex;
+}
+
+.exercise-photo {
+  display: flex;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+}
+
+.muscle-text {
+  color: grey;
+}
+
+.exercise-info-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.exercise-screen-right-container {
+  display: flex;
+  flex-direction: column;
+  height: 95vh;
+  overflow-y: auto;
+}
+
+.exercise-animation-container {
+  display: flex;
+  width: 400px;
+  height: 20vh;
+  border: 10px;
+  border-style: solid;
+}
+
+.exercise-animation {
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.img-info-container {
+  display: flex;
+}
+
+.statistics-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stats-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.stats-plot {
+  display: flex;
+  width: 40vw;
+  height: 20vh;
+  border: 10px;
+  border-style: solid;
+  justify-content: center;
+  align-items: center;
 }
