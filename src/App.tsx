@@ -7,7 +7,6 @@ import './App.css';
 // import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Exercises from "./pages/Exercises";
-import Home from "./pages/Home";
 import Feed from "./pages/Feed";
 import Profile from "./pages/Profile";
 import Routines from "./pages/Routines";
