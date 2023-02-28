@@ -1,6 +1,5 @@
 [
-    {"pageName": "/", "displayName": "Home"},
-    {"pageName": "/feed", "displayName": "Feed"},
+    {"pageName": "/", "displayName": "Feed"},
     {"pageName": "/routines", "displayName": "Routines"},
     {"pageName": "/exercises", "displayName": "Exercises"},
     {"pageName": "/profile", "displayName": "Profile"},

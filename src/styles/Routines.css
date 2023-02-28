@@ -1,0 +1,24 @@
+.screen-container {
+    display: flex;
+}
+
+.left-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.routines-container {
+    display: flex;
+    border: 10px;
+    border-style: solid;
+}
+
+.routine-row {
+    display: flex;
+    width: 30vh;
+    justify-content: space-between;
+    border: 3px;
+    border-style: dashed;
+    align-items: center;
+}

@@ -16,18 +16,20 @@ import Layout from './pages/Layout';
 import NoPage from './pages/NoPage';
 import Log from './pages/Log';
 import CreateRoutine from './pages/CreateRoutine';
+import RoutineDisplay from './pages/RoutineDisplay';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
+// TODO: write a robust routing using routines' id, exercises' id, and workout id
 function App() {
   return (
       <BrowserRouter>
         <Routes>
             <Route path="/" element={<Layout/>}>
-              <Route index element={<Home />} />
-              <Route path="feed" element={<Feed />} />
-              <Route path="routines" element={<Routines />} />
+              <Route index element={<Feed />} />
+              <Route path="routines/" element={<Routines />}> </Route> 
+              <Route path="routines/sample-exercise-1" element={<RoutineDisplay routineId='sample-exercise-1'/>} />
               <Route path="exercises" element={<Exercises />} />
               <Route path="profile" element={<Profile />} />
               <Route path="settings" element={<Settings />} />
