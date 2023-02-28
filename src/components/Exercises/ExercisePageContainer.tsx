@@ -8,7 +8,7 @@ export default function ExercisePageContainer() {
 
     return (
         <div className="exercise-page-container">
-            <FilterableExerciseTable></FilterableExerciseTable>
+            <FilterableExerciseTable addable={false} addToScreen={()=>null}></FilterableExerciseTable>
             <ExerciseScreenRightContainer></ExerciseScreenRightContainer>
         </div>
     );

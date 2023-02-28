@@ -43,9 +43,9 @@ import LIFTS from "./ListData.json";
 function ExerciseTable() {
   const rows : any = [];
 
-  LIFTS.forEach( (lift : any) => {
+  LIFTS.forEach( (lift : { lift: string; muscle: string; imgPath: string; id: number; }) => {
     rows.push(
-      <ExerciseRow props={lift} />
+      <ExerciseRow muscle={lift.muscle} id={lift.id} lift={lift.lift} imgPath={lift.imgPath} addable={false} addToScreen={()=>null}/>
     );
     rows.push(
       <hr></hr>

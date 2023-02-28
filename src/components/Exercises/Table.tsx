@@ -15,7 +15,10 @@ import "../../styles/Exercises.css";
 export type ListElement = { lift: string; muscle: string; imgPath: string; id: number; }
 
 export interface Props {
-  list?: ({ lift: string; muscle: string; imgPath: string; id: number; } )[]
+  list?: ({ lift: string; muscle: string; imgPath: string; id: number; } )[],
+  addable : boolean,
+  addToScreen(lift: string) : void;
+
 }
 
 export interface State {
@@ -129,7 +132,7 @@ class Table extends React.Component<Props,State> {
         {/* <CreateExerciseButton/> */}
 
         <section className="section">
-          <List items={this.state.list} delete={this.removeItem} />
+          <List items={this.state.list} delete={this.removeItem} addable={this.props.addable} addToScreen={this.props.addToScreen} />
         </section>
         <hr />
         

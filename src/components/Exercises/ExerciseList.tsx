@@ -18,8 +18,14 @@ export default function ExerciseList(props : any) {
         }
     })
 
-    const exerciseRows = filteredData.map((item : any) => (
-        <ExerciseRow props={item}></ExerciseRow>
+    const exerciseRows = filteredData.map((item : { lift: string; muscle: string; imgPath: string; id: number; }) => (
+        <ExerciseRow lift={item.lift} 
+                muscle={item.muscle} 
+                imgPath={item.imgPath} 
+                id={item.id} 
+                addable={false}
+                addToScreen={()=>null} 
+        />
     ));
 
     return (

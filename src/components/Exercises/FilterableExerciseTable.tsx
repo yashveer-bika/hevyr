@@ -8,7 +8,12 @@ import CreateExerciseButton from "./CreateExerciseButton"
 // import CreateExerciseWindow from "./CreateExerciseWindow";
 import Table from "./Table";
 
-function FilterableExerciseTable() {
+export interface filterableExerciseTableProperty { 
+  addable: boolean;
+  addToScreen(lift: string) : void;
+}
+
+function FilterableExerciseTable({addable, addToScreen} : filterableExerciseTableProperty) {
 
   return (
     <div className="filterableExerciseTable">
@@ -24,7 +29,7 @@ function FilterableExerciseTable() {
           <CreateExerciseButton></CreateExerciseButton>
         </div>
         
-        <Table></Table>
+        <Table addable={addable} addToScreen={addToScreen}></Table>
 
         {/* <SearchBar></SearchBar> */}
 

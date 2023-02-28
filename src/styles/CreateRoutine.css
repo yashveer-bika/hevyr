@@ -1,0 +1,30 @@
+
+.screen-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
+
+.left-side-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.create-routine-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center ;
+    height: 5vh;
+}
+
+.routine-container {
+    border: 10px;
+    border-style: solid;
+    height: 85vh;
+    width: 45vw;
+}
+
+.right-side-container {
+    display: flex;
+}

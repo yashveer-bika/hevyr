@@ -4,8 +4,11 @@ import ExerciseRow from './ExerciseRow';
 
 
 export interface ListProps {
-  items: ({ lift: string; muscle: string; imgPath: string; id: number; } )[]
-  delete(item: ({ lift: string; muscle: string; imgPath: string; id: number; } )): void
+  items: ({ lift: string; muscle: string; imgPath: string; id: number; } )[],
+  delete(item: ({ lift: string; muscle: string; imgPath: string; id: number; } )): void,
+  addable: boolean,
+  addToScreen(lift: string) : void;
+
 }
 
 export interface ListState {
@@ -72,8 +75,13 @@ class List extends React.Component<ListProps,ListState> {
           <div className="exercise-rows">
             {this.state.filtered.map((item: ({ lift: string; muscle: string; imgPath: string; id: number; } )) => (
       
-              <ExerciseRow props={item}></ExerciseRow>
-                
+              <ExerciseRow lift={item.lift} 
+                muscle={item.muscle} 
+                imgPath={item.imgPath} 
+                id={item.id} 
+                addable={this.props.addable} 
+                addToScreen={this.props.addToScreen}
+              />
             ))}
           </div>
 
