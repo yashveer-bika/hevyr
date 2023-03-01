@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import TestImage from '../../assets/test.jpg'
 import "../../styles/Log.css"
 import Stopwatch from "./Stopwatch";
+import Timer from "./Timer";
 
 export default function ScreenContainer() {
 
@@ -20,6 +21,10 @@ export default function ScreenContainer() {
     }
 
     const [activeWatch, setActiveWatch] = useState(false);
+
+
+    // time in milliseconds (ms)
+    const defaultTimerStartTime : number = 60 * 1000;
 
     const clockModal = 
                 <Modal show={showClocks} onHide={() => setShowClocks(false)} animation={false}>
@@ -55,9 +60,7 @@ export default function ScreenContainer() {
                                     </div>
                                 :
                                     <div>
-                                        Clock                                        
-                                        and -15s 
-                                        and +15s
+                                        <Timer defaultTimerStartTime={defaultTimerStartTime} ></Timer>
                                     </div>
                             }
 
