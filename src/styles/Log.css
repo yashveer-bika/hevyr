@@ -1,3 +1,21 @@
+.screen-container {
+    display: flex;
+}
+
+.current-workout-info-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.log-bar {
+    display: flex;
+    justify-content: center;
+    width: 60vw;
+    border: 5px;
+    border-style: solid;
+    gap: 10px;
+}
+
 .clock-img {
     width: 50px;
 }
@@ -28,3 +46,24 @@
     text-align: center;
 }
 
+.exercise-table-container {
+    display: flex;
+    border: 5px;
+    border-style: solid;
+}
+
+.workout-info-bar {
+    display: flex;
+    justify-content: center;
+    width: 60vw;
+    border: 5px;
+    border-style: solid;
+    gap: 10px;
+    text-align: center;
+}
+
+.workout-bottom-bar {
+    display: flex;
+    border: 5px;
+    border-style: solid;
+}
