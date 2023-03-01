@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Button, Dropdown, Form } from "react-bootstrap";
+import { Button, Dropdown, Form, Modal } from "react-bootstrap";
 import "../../styles/Settings.css"
 import TestImage from '../../assets/test.jpg'
 import axios from "axios";
+import DropdownItem from "react-bootstrap/esm/DropdownItem";
 
 
 export default function SettingScreenRightContainer({activeIndex}: any) {
@@ -79,34 +80,34 @@ export default function SettingScreenRightContainer({activeIndex}: any) {
         */
     }
 
-    const pages = [
-            (
-                <div className="setting-screen-right-container">
-                    <div className="profile-pic-container"> 
-                        <img src={TestImage} alt="WHERE IS THE IMG?" width={100}></img>
+    const profileSettings = (
+        <div className="setting-screen-right-container">
+            <div className="profile-pic-container"> 
+                <img src={TestImage} alt="WHERE IS THE IMG?" width={100}></img>
 
-                        <form onSubmit={handleSubmit}>
-                            <h1>React File Upload</h1>
-                            <input type="file" onChange={handleChange}/>
-                            <button type="submit">Upload</button>
-                        </form>
-                    </div>
+                <form onSubmit={handleSubmit}>
+                    <h1>React File Upload</h1>
+                    <input type="file" onChange={handleChange}/>
+                    <button type="submit">Upload</button>
+                </form>
+            </div>
 
-                    <div>
-                        Name 
-                        <input name="firstName" />
-                    </div>
-                    <div>
-                        Bio
-                        <input name="firstName" />
-                    </div>
+            <div>
+                Name 
+                <input name="firstName" />
+            </div>
+            <div>
+                Bio
+                <input name="firstName" />
+            </div>
 
-                    <div>
-                        Save changes button
-                    </div>
-                </div>
-            ), 
-            (
+            <div>
+                Save changes button
+            </div>
+        </div>
+    )
+
+    const accountSettings = (
                 <div className="setting-screen-right-container">
                     <div className="unit-note">
                         <div>
@@ -160,13 +161,15 @@ export default function SettingScreenRightContainer({activeIndex}: any) {
                     </Form>
                     </div>
                 </div>
-            ), 
-            (
-                <div className="setting-screen-right-container">
-                    TODO: set up Stripe API stuff to set up payment
-                </div>
-            ), 
-            (
+    )
+
+    const manageSubscription = (
+        <div className="setting-screen-right-container">
+            TODO: set up Stripe API stuff to set up payment
+        </div>
+    )
+
+    const unitSettings = (
                 <div className="setting-screen-right-container">
                     <div className="unit-note">
                         <div>
@@ -251,38 +254,40 @@ export default function SettingScreenRightContainer({activeIndex}: any) {
 
 
                 </div>
-            ), 
-            (
-                <div className="setting-screen-right-container">
-                    <div className="theme-note">
-                        Current Theme
+    )
 
-                        <Dropdown className="d-inline mx-2">
-                            <Dropdown.Toggle id="dropdown-autoclose-true">
-                                {theme}
-                            </Dropdown.Toggle>
+    const themeSettings = (
+        <div className="setting-screen-right-container">
+            <div className="theme-note">
+                Current Theme
 
-                            <Dropdown.Menu>
-                                
+                <Dropdown className="d-inline mx-2">
+                    <Dropdown.Toggle id="dropdown-autoclose-true">
+                        {theme}
+                    </Dropdown.Toggle>
 
-                                <Dropdown.Item onClick={(() => handleTheme("Light"))}>
-                                    {"Light"}
-                                </Dropdown.Item>
-                                <Dropdown.Item onClick={(() => handleTheme("Dark"))}>
-                                    {"Dark"}
-                                </Dropdown.Item>
-                                   
-                            
-                            </Dropdown.Menu>
-                        </Dropdown>
-                    </div>
+                    <Dropdown.Menu>
+                        
 
-                    <hr></hr>
+                        <Dropdown.Item onClick={(() => handleTheme("Light"))}>
+                            {"Light"}
+                        </Dropdown.Item>
+                        <Dropdown.Item onClick={(() => handleTheme("Dark"))}>
+                            {"Dark"}
+                        </Dropdown.Item>
+                        
+                    
+                    </Dropdown.Menu>
+                </Dropdown>
+            </div>
+
+            <hr></hr>
 
 
-                </div>
-            ), 
-            (
+        </div>
+    )
+
+    const exportDataPage = (
                 <div className="setting-screen-right-container">
                     <h3>
                     Export Workout Data
@@ -298,7 +303,123 @@ export default function SettingScreenRightContainer({activeIndex}: any) {
                         <Button onClick={triggerExportData}>Export Workout Data</Button>
                     </div>
                 </div>
-            )
+    )
+
+
+    const timerSounds = ["Default", "Alarm", "Futuristic"];
+    const timerVolumes = ["Off", "Low", "Normal", "High"];
+
+
+    const [timerSound, setTimerSound] = useState(0);
+    const [timerVolume, setTimerVolume] = useState(2);
+    const [showSoundModal, setShowSoundModal] = useState(false);
+    const [showVolumeModal, setShowVolumeModal] = useState(false);
+
+    const soundMenuItems : JSX.Element[] = [];
+
+    timerSounds.forEach( (sound, idx) => {
+        soundMenuItems.push(
+            <Dropdown.Item onClick={() => setTimerSound(idx)}> {sound} </Dropdown.Item>  
+        );
+    })
+
+    const soundModal = (
+        <div className="sound-modal">
+            <Modal show={showSoundModal} onHide={() => setShowSoundModal(false)} animation={false}>
+                <Modal.Header closeButton>
+                <Modal.Title>
+                    Select Timer Sound
+                </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+
+                    <Dropdown className="d-inline mx-2">
+                        <Dropdown.Toggle id="dropdown-autoclose-true">
+                            {timerSounds[timerSound]}
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu>
+                            {soundMenuItems}
+                        </Dropdown.Menu>
+
+                    </Dropdown>
+
+                
+                </Modal.Body>
+
+
+            </Modal>
+        </div>
+    );
+
+    // volume modal stuff
+
+    const volumeMenuItems : JSX.Element[] = [];
+
+    timerVolumes.forEach( (volume, idx) => {
+        volumeMenuItems.push(
+            <Dropdown.Item onClick={() => setTimerVolume(idx)}> {volume} </Dropdown.Item>  
+        );
+    })
+
+    const volumeModal = (
+        <div className="volume-modal">
+            <Modal show={showVolumeModal} onHide={() => setShowVolumeModal(false)} animation={false}>
+                <Modal.Header closeButton>
+                <Modal.Title>
+                    Select Timer Volume
+                </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+
+                    <Dropdown className="d-inline mx-2">
+                        <Dropdown.Toggle id="dropdown-autoclose-true">
+                            {timerVolumes[timerVolume]}
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu>
+                            {volumeMenuItems}
+                        </Dropdown.Menu>
+
+                    </Dropdown>
+
+                
+                </Modal.Body>
+
+
+            </Modal>
+        </div>
+    );
+
+    const timerSettings = (
+        <div className="setting-screen-right-container">
+            <div className="menu-display" onClick={() => setShowSoundModal(true)} >
+                <div> Timer Sound </div>
+                <div className="current-setting"> { timerSounds[timerSound] }</div>
+            </div>
+
+            {soundModal}
+
+            <hr></hr>
+
+            <div className="menu-display" onClick={() => setShowVolumeModal(true)} >
+                <div> Timer Volume </div>
+                <div className="current-setting"> { timerVolumes[timerVolume] }</div>
+            </div>
+
+            {volumeModal}
+
+        </div>
+    )
+
+    const pages = [
+        profileSettings,
+        accountSettings, 
+        manageSubscription,
+        unitSettings,
+        themeSettings, 
+        exportDataPage,
+        timerSettings
     ]
 
     // const idx : number = activeIndex;

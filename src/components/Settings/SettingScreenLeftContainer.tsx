@@ -21,6 +21,8 @@ export default function SettingScreenLeftContainer({activeIndex, onShow}: any) {
             <hr></hr>
             <SettingCell name="Export Data" img="TODO: find img" active={activeIndex === 5} onShow={() => onShow(5)} ></SettingCell>
             <hr></hr>
+            <SettingCell name="Timer" img="TODO: find img" active={activeIndex === 6} onShow={() => onShow(6)} ></SettingCell>
+            <hr></hr>
         </div>
     );
 }
