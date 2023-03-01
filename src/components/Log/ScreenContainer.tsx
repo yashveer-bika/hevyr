@@ -1,7 +1,13 @@
 import { useState } from "react";
 import { Button, Dropdown, Modal } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import TestImage from '../../assets/test.jpg'
+import "../../styles/Log.css"
+import Stopwatch from "./Stopwatch";
 
 export default function ScreenContainer() {
+
+    let navigate = useNavigate();
 
     const [showClocks, setShowClocks] = useState(false);
 
@@ -13,40 +19,58 @@ export default function ScreenContainer() {
 
     }
 
+    const [activeWatch, setActiveWatch] = useState(false);
+
     const clockModal = 
                 <Modal show={showClocks} onHide={() => setShowClocks(false)} animation={false}>
                     <Modal.Header closeButton>
                     <Modal.Title>
-                        
-                        <Dropdown className="d-inline mx-2">
-                            <Dropdown.Toggle id="dropdown-autoclose-true">
-                            </Dropdown.Toggle>
-
-                            <Dropdown.Menu>
-                            {
-                                <Dropdown.Item>
-                                
-                                </Dropdown.Item>
-                            }
-                            </Dropdown.Menu>
-
-                        </Dropdown>
-
-                        Clock
+                        <div className="clock-modal-title-container">
+                            <div onClick={() => navigate("/settings")}>
+                                <img className="timer-setting-img" src={TestImage} alt="todo: find proper img"></img>
+                            </div>
+                            <div className="clock-modal-title">
+                                Clock
+                            </div>
+                        </div>
+                       
                     </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
 
+                        <div>
+                            <div className="clock-names">
+                                <div className={!activeWatch ?  "active-clock" : "nonactive-clock"}  onClick={() => setActiveWatch(false)}>
+                                    Timer
+                                </div>
+                                <div className={activeWatch ?  "active-clock" : "nonactive-clock"} onClick={() => setActiveWatch(true)}>
+                                    Stopwatch
+                                </div>
+                            </div>
+                            
+                            {
+                                activeWatch ?
+                                    <div>
+                                        <Stopwatch></Stopwatch>
+                                    </div>
+                                :
+                                    <div>
+                                        Clock                                        
+                                        and -15s 
+                                        and +15s
+                                    </div>
+                            }
+
+                            <div>
+
+                            </div>
+
+
+                        </div>
+
                     
                     </Modal.Body>
 
-                    <Modal.Footer>
-
-                        <Button variant="primary" onClick={startTimer}>
-                            Start
-                        </Button>
-
-                    </Modal.Footer>
                 </Modal>
 
     return (

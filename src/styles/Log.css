@@ -1,4 +1,30 @@
-
 .clock-img {
     width: 50px;
 }
+
+.timer-setting-img {
+    width: 30px
+}
+
+.clock-modal-title-container {
+    display: flex;
+    align-items: center;
+}
+
+.clock-names {
+    display: flex;
+    justify-content: space-between;
+}
+
+.active-clock {
+    background-color: rgb(60, 134, 158);
+    color: white;
+    width: 400px;
+    text-align: center;
+}
+
+.nonactive-clock {
+    width: 400px;
+    text-align: center;
+}
+
