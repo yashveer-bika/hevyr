@@ -16,6 +16,7 @@ import NoPage from './pages/NoPage';
 import Log from './pages/Log';
 import CreateRoutine from './pages/CreateRoutine';
 import RoutineDisplay from './pages/RoutineDisplay';
+import Sandbox from './pages/Sandbox';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -33,6 +34,7 @@ function App() {
               <Route path="profile" element={<Profile />} />
               <Route path="settings" element={<Settings />} />
               <Route path="log" element={<Log />} />
+              <Route path="sandbox" element={<Sandbox />} />
               <Route path="create-routine" element={<CreateRoutine />} />
               <Route path="*" element={<NoPage />} />
             </Route>

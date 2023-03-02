@@ -4,5 +4,6 @@
     {"pageName": "/exercises", "displayName": "Exercises"},
     {"pageName": "/profile", "displayName": "Profile"},
     {"pageName": "/settings", "displayName": "Settings"},
-    {"pageName": "/log", "displayName": "Log"}
+    {"pageName": "/log", "displayName": "Log"},
+    {"pageName": "/sandbox", "displayName": "Sandbox"}
 ]
