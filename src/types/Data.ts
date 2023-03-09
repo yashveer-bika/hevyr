@@ -19,7 +19,7 @@ export type ExerciseStyle =
 
 
 export interface Exercise {
-    name: string;
+    name: string | undefined;
     equipment: string;
     primary: Muscle;
     img: string; // TODO: figure out a good type for img

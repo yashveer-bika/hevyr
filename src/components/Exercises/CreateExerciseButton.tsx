@@ -14,6 +14,8 @@ import Equipment from "./Equipment.json";
 import axios from "axios";
 
 import ImageUpload from "../ImageUpload";
+import { Exercise, ExerciseStyle, Muscle } from "../../types/Data";
+import { addToExerciseTable } from "../../backend/exercise";
 
 
 
@@ -33,8 +35,28 @@ function CreateExerciseButton() {
   function handleClose() {
     setShow(false);
     resetCreateExerciseWindow();
-    // TODO: write out the exerciseType, equipment and primaryMuscleGroup into the exercise database for the given user
   }
+  
+  function saveChanges() {
+
+    const name = document.getElementById("addInput")?.outerHTML;
+
+    // TODO: update image correctly
+    
+    const exercise : Exercise = {
+      "name": name,
+      "equipment": equipment,
+      "primary": (primaryMuscleGroup as Muscle),
+      "img": "",
+      "style": (exerciseType as ExerciseStyle),
+      "secondary": []
+    }
+
+    // TODO: write out the exercise to the database
+
+    handleClose();
+  }
+
   const handleShow = () => setShow(true);
   const handleExerciseType = (exerciseType:string) => setExerciseType(exerciseType);
   const handleEquipment = (equipment:string) => setEquipment(equipment);
@@ -186,7 +208,7 @@ function CreateExerciseButton() {
           {/* <Button variant="secondary" onClick={handleClose}>
             Close
           </Button> */}
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={saveChanges}>
             Save Changes
           </Button>
         </Modal.Footer>
