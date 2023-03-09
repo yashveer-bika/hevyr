@@ -7,7 +7,7 @@ function Sandbox() {
         <div>
             <Navbar pages={ Pages } />
 
-            <LogCell></LogCell>
+            <LogCell lift="Front Squat" id="3"></LogCell>
         </div>
     );
 }

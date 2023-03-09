@@ -63,9 +63,41 @@
     border-style: solid;
 }
 
+
+.log-cell-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 5px;
+    border-style: solid;
+}
+
+.log-cell-header {
+    display: flex;
+    gap: 10px;
+}
+
+.exercise-img {
+    width: 100px;;
+}
+
+.complete-set {
+    background-color: lightgreen;
+
+}
+
+/* .check-button {
+    color: ;
+} */
+
+/* .incomplete-set {
+    background-color: green;
+} */
+
+
 .active-exercise-table {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .workout-bottom-bar {

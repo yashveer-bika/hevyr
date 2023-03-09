@@ -1,13 +1,33 @@
 import { useState } from "react";
 import { Button, ButtonGroup, Dropdown, Modal } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { useStopwatch } from "react-timer-hook";
 import TestImage from '../../assets/test.jpg'
 import "../../styles/Log.css"
 import FilterableExerciseTable from "../Exercises/FilterableExerciseTable";
+import LogCell from "./LogCell";
 import Stopwatch from "./Stopwatch";
 import Timer from "./Timer";
 
+function useForceUpdate(){
+    const [value, setValue] = useState(0); // integer state
+    return () => setValue(value => value + 1); // update state to force render
+    // A function that increment 👆🏻 the previous state like here 
+    // is better than directly setting `setValue(value + 1)`
+}
+
 export default function ScreenContainer() {
+
+    const {
+        seconds,
+        minutes,
+        hours,
+        days,
+        isRunning,
+        start,
+        pause,
+        reset,
+      } = useStopwatch({ autoStart: false });
 
     let navigate = useNavigate();
 
@@ -81,11 +101,16 @@ export default function ScreenContainer() {
 
     const [showCurrentWorkout, setShowCurrentWorkout] = useState(false);
     const [showStartEmptyWorkoutButton, setShowStartEmptyWorkoutButton] = useState(true);
+    const startTime = Date.now();
 
     function startEmptyWorkout() {
         // TODO: set up whatever other triggers are needed
         setShowCurrentWorkout(true);
         setShowStartEmptyWorkoutButton(false);
+
+        // trigger the duration timer to start
+        start();
+
     }
 
     function finishWorkoutEventHandler() {
@@ -102,13 +127,52 @@ export default function ScreenContainer() {
     // TODO: make the switch over to full component with image, sets, lbs, reps, etc.
     const [activeExercises, setActiveExercises] = useState<string[]>([]);
 
+    const [activeExerciseCells, setActiveExerciseCells] = useState<JSX.Element[]>([]);
+
+    const [rowArray, setRowArray] = useState<number[]>([]);
+
+    const forceUpdate = useForceUpdate();
+
+    let runningId = 0;
+
+    function deleteRowEventHandler(genId : number) {
+        let temp = rowArray;
+        var index = temp.indexOf(genId);
+        console.log(`Delete index: ${index}`);
+        let temp2 = activeExerciseCells;
+        temp2.splice(index, 1);
+        console.log(`Updated active: ${activeExerciseCells.map((x : JSX.Element) => x)}`);
+        setActiveExerciseCells(temp2);
+        forceUpdate();
+        
+    }
+
     // TODO: use a more complete custom type instead of string
     function addExerciseToPage(lift : string) {
 
-        let newActiveExercises : string[] = activeExercises;
-        newActiveExercises.push(lift);
-        setActiveExercises(newActiveExercises);
-        console.log(activeExercises);
+        // let newActiveExercises : string[] = activeExercises;
+        // newActiveExercises.push(lift);
+        // setActiveExercises(newActiveExercises);
+        // console.log(activeExercises);
+
+        let newActiveExercises : JSX.Element[] = activeExerciseCells;
+        // TODO: create deleteLift event trigger
+        let newExercise = < LogCell lift={lift} id={runningId} deleteLogCell={deleteRowEventHandler} /> ;
+        newActiveExercises.push( 
+            newExercise
+        );
+        setActiveExerciseCells(newActiveExercises);
+
+        let temp = rowArray;
+        temp.push( runningId );
+        setRowArray(temp);
+        runningId += 1;
+
+        // console.log(activeExercises);
+
+        // update rowArray that stores the id of each row on display
+
+
 
         // close exerciseDatabaseModal
         setShowExerciseDatabaseModal(false);
@@ -125,7 +189,6 @@ export default function ScreenContainer() {
             <Modal.Body>
 
                 <FilterableExerciseTable addable={true} addToScreen={addExerciseToPage}></FilterableExerciseTable>
-
             
             </Modal.Body>
 
@@ -160,7 +223,7 @@ export default function ScreenContainer() {
                                     Duration
                                 </div>
                                 <div>
-                                    10min 4s (example time)
+                                    {`${hours}hrs ${minutes}min ${seconds}s`}
                                 </div>
                             </div>
 
@@ -187,7 +250,8 @@ export default function ScreenContainer() {
                         <div className="exercise-table-container">
 
                             {
-                                (activeExercises.length == 0) 
+                                // (activeExercises.length == 0) 
+                                (activeExerciseCells.length == 0) 
                                 ? 
                                     (<div className="getting-starting-view">
                                         <div>
@@ -204,7 +268,8 @@ export default function ScreenContainer() {
                                 
 
                             <div className="active-exercise-table">
-                                {activeExercises}
+                                {/* {activeExercises} */}
+                                {activeExerciseCells}
                             </div>
 
 
