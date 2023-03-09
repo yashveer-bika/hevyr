@@ -5,5 +5,12 @@
         "primary": "Biceps",
         "img": "",
         "style": "Weight Reps"
+    },
+    {   
+        "name": "Ab Scissors",
+        "equipment": "None",
+        "primary": "Abdominals",
+        "img": "",
+        "style": "Reps only"
     }
 ]

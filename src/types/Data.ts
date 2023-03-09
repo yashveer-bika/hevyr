@@ -24,4 +24,5 @@ export interface Exercise {
     primary: Muscle;
     img: string; // TODO: figure out a good type for img
     style: ExerciseStyle;
+    secondary: Muscle | Muscle[];
 }
