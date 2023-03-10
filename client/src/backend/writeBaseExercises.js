@@ -4,7 +4,8 @@ import { MongoClient } from "mongodb";
 import BaseExercises from "./baseExercises.json" assert { type: "json" };
 
 // Replace the following with your Atlas connection string                                                                                                                                        
-
+const username = "yashveerbika"
+const password = "4nfw2aey"
 // TODO: put your own username and password
 const url = `mongodb+srv://${username}:${password}@hevy-clone.nnu3be0.mongodb.net/?retryWrites=true&w=majority`;
 const client = new MongoClient(url);

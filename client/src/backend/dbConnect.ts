@@ -7,7 +7,8 @@ import { MongoClient } from "mongodb";
  */
 export function callDatabase(dbName : string, dbOperation : any) {
     // Replace the following with your Atlas connection string    
-    
+    const username = "yashveerbika"
+    const password = "4nfw2aey"
     // TODO: put your own username and password
     const url = `mongodb+srv://${username}:${password}@hevy-clone.nnu3be0.mongodb.net/?retryWrites=true&w=majority`;
     const client = new MongoClient(url);
