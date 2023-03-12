@@ -17,40 +17,6 @@ await MyModel.find({ name: 'john', age: { $gte: 18 } }).exec(); --> { name: 'joh
 
 */
 export async function getExercises(req: Request, res: Response) {
-  // // hard-coded example
-  // const exercises : Exercise[] = [
-  //   {
-      // "name": "Bench Press - Close Grip (Barbell)",
-      // "equipment": "Barbell",
-      // "primary": "Triceps",
-      // "img": "default", // TODO: figure out a good type for img
-      // "style": "Weight Reps",
-      // "secondary": ["Chest", 'Shoulders']
-  //   },
-  //   {
-  //     "name": "Chin Up (Assisted)",
-  //     "equipment": "Machine",
-  //     "primary": "Lats",
-  //     "img": "default", // TODO: figure out a good type for img
-  //     "style": "Weight Reps",
-  //     "secondary": ["Upper Back", 'Biceps']
-  //   },
-  //   {
-  //     "name": "Chest Dip (Assisted)",
-  //     "equipment": "Machine",
-  //     "primary": "Chest",
-  //     "img": "default", // TODO: figure out a good type for img
-  //     "style": "Weight Reps",
-  //     "secondary": ["Triceps", 'Shoulders']
-  //   }
-  // ];
-
-  // var id = 0;
-
-  // res.send(
-  //   exercises.map((e : Exercise) => [id++, e])
-  // );
-
   // TODO: get exercises from database
 
   // TODO: set up some error checking on GET request (req.body)
@@ -69,10 +35,6 @@ export async function getExercises(req: Request, res: Response) {
   } catch (err : any) {
       // TODO: set up error handling
   }
-  // res.send(exerciseTable);
-
-
-
 }
 
 // write a single exercise
