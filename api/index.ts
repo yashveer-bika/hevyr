@@ -3,7 +3,6 @@ import dotenv from 'dotenv';
 import { exerciseRouter,  } from './routes/';
 import {exerciseModel} from "../models/Exercise"
 import { Exercise } from './types/Data';
-import { crudRouter } from "./routes/crud";
 import { connectToDB } from "./controllers/db"
 
 dotenv.config();
@@ -32,9 +31,6 @@ app.use('/exercises', exerciseRouter);
 //       "secondary": []
 //     }
 // ).save();
-
-app.use('/api/v1', crudRouter);
-
 
 // TODO: add all my routes here
 
