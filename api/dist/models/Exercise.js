@@ -51,11 +51,9 @@ exerciseSchema.statics.build = (attr) => {
     });
     // return ret;
 };
-const connection = mongoose_1.default.createConnection('mongodb+srv://yashveerbika:4nfw2aey@hevy-clone.nnu3be0.mongodb.net/?retryWrites=true&w=majority');
 // compile schema to model
-const exerciseModel = connection.model('Exercise', exerciseSchema, "exerciseTable");
+const exerciseModel = mongoose_1.default.model('Exercise', exerciseSchema, "exerciseTable");
 exports.exerciseModel = exerciseModel;
-exerciseModel.createCollection();
 function handleError(err) {
     throw new Error('Function not implemented.');
 }
