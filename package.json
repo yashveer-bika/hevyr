@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/yashveer-bika/hevyr#readme",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "dotenv": "^16.0.3",
     "mongoose": "^7.0.1"
   }

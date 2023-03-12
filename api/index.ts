@@ -4,12 +4,15 @@ import { exerciseRouter,  } from './routes/';
 import {exerciseModel} from "../models/Exercise"
 import { Exercise } from './types/Data';
 import { crudRouter } from "./routes/crud";
+import { connectToDB } from "./controllers/db"
 
 dotenv.config();
 
 const app: Express = express();
 const port = process.env.PORT;
 console.log(`Port = ${port}`)
+
+connectToDB();
 
 // // Basic homepage
 // app.get('/', (req: Request, res: Response) => {

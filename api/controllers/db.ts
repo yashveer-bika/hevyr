@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { Collection } from "mongoose";
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -13,7 +13,7 @@ declare var process : {
 const db = mongoose.connection;
 const DB_URI = process.env.DB_URI;
 
-function connectToDB() {
+export function connectToDB() {
     mongoose.connect(DB_URI);
 
     // When successfully connected
@@ -30,8 +30,15 @@ function connectToDB() {
     mongoose.connection.on('disconnected', () => {
         console.log('Database disconnected');
     });
-    }
+}
 
+
+// // TODO: write a good type for the callback function
+// export function find (name : string, query : mongoose.mongo.Filter<mongoose.mongo.BSON.Document> , cb : any) {
+//     mongoose.connection.db.collection(name, (err : any, collection : any) {
+//        collection.find(query).toArray(cb);
+//    });
+// }
 
 // connectToDB();
 
