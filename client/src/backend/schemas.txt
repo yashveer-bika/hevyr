@@ -1,3 +1,0 @@
-A user's log table schema looks like
-
-title	start_time	end_time	description	exercise_title	superset_id	exercise_notes	set_index	set_type	weight_lbs	reps	distance_miles	duration_seconds
