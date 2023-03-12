@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { Exercise } from "../../client/src/types/Data"
+import { Exercise } from "../types/Data"
 
 export function getExercises(req: Request, res: Response) {
   const exercises : Exercise[] = [
