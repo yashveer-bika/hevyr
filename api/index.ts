@@ -1,6 +1,8 @@
 import express, { Express, Request, Response } from 'express';
 import dotenv from 'dotenv';
 import { exerciseRouter,  } from './routes/';
+import {exerciseModel} from "../models/Exercise"
+import { Exercise } from './types/Data';
 
 dotenv.config();
 
@@ -13,6 +15,19 @@ const port = process.env.PORT;
 // });
 
 app.use('/exercises', exerciseRouter);
+
+// a document instance
+exerciseModel.build(
+  {
+      "name": "Plank",
+      "equipment": "None",
+      "primary": "Abdominals",
+      "img": "default", // TODO: figure out a good type for img
+      "style": "Duration",
+      "secondary": []
+    }
+).save();
+
 
 // TODO: add all my routes here
 

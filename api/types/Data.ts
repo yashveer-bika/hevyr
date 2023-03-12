@@ -1,4 +1,4 @@
-export type Muscle = 
+export type Muscle =
     "Abdominals" | "Abductors" | "Adductors" | "Biceps" | 
     "Lower Back" | "Upper Back" | "Cardio" | "Chest" | "Calves" |
     "Forearms" | "Glutes" | "Hamstrings" | "Lats" | "Olympic" | 
@@ -6,7 +6,7 @@ export type Muscle =
     "Other"
 ;
 
-export type Equipment = 
+export type Equipment =
     "None" | "Barbell" | "Dumbbell" | "Kettlebell" | "Cable" | 
     "Machine" | "Plate" | "Resistance Band" | "Suspension" | "Other"
 ;

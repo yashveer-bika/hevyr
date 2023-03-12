@@ -7,7 +7,7 @@ export function getExercises(req: Request, res: Response) {
       "name": "Bench Press - Close Grip (Barbell)",
       "equipment": "Barbell",
       "primary": "Triceps",
-      "img": "", // TODO: figure out a good type for img
+      "img": "default", // TODO: figure out a good type for img
       "style": "Weight Reps",
       "secondary": ["Chest", 'Shoulders']
     },
@@ -15,7 +15,7 @@ export function getExercises(req: Request, res: Response) {
       "name": "Chin Up (Assisted)",
       "equipment": "Machine",
       "primary": "Lats",
-      "img": "", // TODO: figure out a good type for img
+      "img": "default", // TODO: figure out a good type for img
       "style": "Weight Reps",
       "secondary": ["Upper Back", 'Biceps']
     },
@@ -23,7 +23,7 @@ export function getExercises(req: Request, res: Response) {
       "name": "Chest Dip (Assisted)",
       "equipment": "Machine",
       "primary": "Chest",
-      "img": "", // TODO: figure out a good type for img
+      "img": "default", // TODO: figure out a good type for img
       "style": "Weight Reps",
       "secondary": ["Triceps", 'Shoulders']
     }

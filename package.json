@@ -1,0 +1,23 @@
+{
+  "name": "hevy-clone",
+  "version": "1.0.0",
+  "description": "This application is a clone of [Hevy](https://www.hevy.com/)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yashveer-bika/hevyr.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yashveer-bika/hevyr/issues"
+  },
+  "homepage": "https://github.com/yashveer-bika/hevyr#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "mongoose": "^7.0.1"
+  }
+}
