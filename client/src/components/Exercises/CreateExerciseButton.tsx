@@ -11,11 +11,10 @@ import { defaultDropDownName } from "../Util/Dropdown";
 import MuscleGroups from "./MuscleGroups.json";
 import ExerciseTypes from "./ExerciseTypes.json";
 import Equipment from "./Equipment.json";
-import axios from "axios";
+// import axios from "axios";
 
 import ImageUpload from "../ImageUpload";
 import { Exercise, ExerciseStyle, Muscle } from "../../types/Data";
-import { addToExerciseTable } from "../../backend/exercise";
 
 
 
@@ -25,6 +24,7 @@ function CreateExerciseButton() {
   const [equipment, setEquipment] = useState(defaultDropDownName);
   const [primaryMuscleGroup, setPrimaryMuscleGroup] = useState(defaultDropDownName);
   const [selectedFile, setSelectedFile] = useState(null);
+  // TODO: add secondary
 
   function resetCreateExerciseWindow() {
     setExerciseType(defaultDropDownName);
@@ -37,22 +37,90 @@ function CreateExerciseButton() {
     resetCreateExerciseWindow();
   }
   
-  function saveChanges() {
+  async function saveChanges() {
 
-    const name = document.getElementById("addInput")?.outerHTML;
+    console.log("Saving changes from create exercise button");
 
+    const name = (document.getElementById("addInput") as HTMLInputElement).value;
+    // const name = (document.getElementById("addInput"))?.outerHTML!;
+
+    console.log(`NAME: ${name}`);
     // TODO: update image correctly
     
-    const exercise : Exercise = {
-      "name": name,
-      "equipment": equipment,
-      "primary": (primaryMuscleGroup as Muscle),
-      "img": "",
-      "style": (exerciseType as ExerciseStyle),
-      "secondary": []
+    // const exercise : Exercise = {
+    //   "name": name,
+    //   "equipment": equipment,
+    //   "primary": (primaryMuscleGroup as Muscle),
+    //   "img": "default",
+    //   "style": (exerciseType as ExerciseStyle),
+    //   "secondary": []
+    // }
+
+    // console.log(" Creating Exercise FormData()");
+
+    // let exercise = new FormData();
+    // exercise.append("name", name);
+    // exercise.append("equipment", equipment);
+    // exercise.append("primary", primaryMuscleGroup);
+    // exercise.append("img", "default");
+    // exercise.append("style", exerciseType);
+    // // TODO: set up reading secondary from component input
+    // exercise.append("secondary", "");
+
+    // console.log(exercise);
+
+    // convert exercise to FormData
+    const exercise = {
+      name: name,
+      equipment: equipment,
+      primary: primaryMuscleGroup,
+      img: "default",
+      style: exerciseType,
+      secondary: "Chest,Shoulders"
     }
 
+    console.log(" Finished creating exercise FormData");
+
+    console.log(" Starting post request");
+
+    console.log("KEYS");
+    console.log(Object.keys(exercise));
+
+    const formBody = Object.keys(exercise).map(key => encodeURIComponent(key) + '=' + encodeURIComponent(exercise[key as keyof Exercise])).join('&');
+    console.log("Form Body");
+    console.log(formBody);
+
     // TODO: write out the exercise to the database
+    const response = fetch('http://localhost:8000/exercises/post', {
+      method: 'POST',
+      // headers: {
+      //   Accept: 'application.json',
+      //   'Content-Type': 'application/json'
+      // },
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+      },
+      body: formBody,
+      // cache: 'default'
+    })
+
+    console.log(`Response: ${( (await response).text() )}`);
+
+
+    // const response = await fetch('http://localhost:8000/exercises/get', {
+    //   method: 'GET',
+    //   // headers: {
+    //   //   Accept: 'application.json',
+    //   //   'Content-Type': 'application/json'
+    //   // },
+    //   // body: JSON.stringify(exercise),
+    //   // cache: 'default'
+    // });
+
+    // console.log(`Response: ${(await response.text())}`);
+
+    console.log(" Finished post request");
+
 
     handleClose();
   }

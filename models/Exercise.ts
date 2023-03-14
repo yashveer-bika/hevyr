@@ -35,7 +35,7 @@ const exerciseSchema = new mongoose.Schema({
 })
 
 exerciseSchema.statics.build = (attr : Exercise) => {
-    console.log(`Type of attr.secondary: ${typeof attr.secondary}`)
+    // console.log(`Type of attr.secondary: ${typeof attr.secondary}`)
     const secondary : Muscle | Muscle[] = attr.secondary; 
     // const abs : Muscle = ("Abdominals")
     // const absList : Muscle[] = ["Abdominals", "Adductors"]

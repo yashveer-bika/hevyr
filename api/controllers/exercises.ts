@@ -37,22 +37,52 @@ export async function getExercises(req: Request, res: Response) {
   }
 }
 
-// write a single exercise
+function exerciseTypeCheck(data : Exercise) {
+  
+  if (data.name === undefined || data.equipment == undefined || 
+      data.primary === undefined || data.img === undefined || 
+      data.style === undefined || data.secondary === undefined) {
+        throw new Error("data doesn't satisfy Exercise type");
+  }
+  else {
+
+  }
+}
+
+// Write a single exercise
 export function postExercise(req : Request, res : Response) {
   const data : Exercise = req.body;
 
-
-
-  // console.log(data.name);
-  // console.log(data.equipment);
-
+  exerciseTypeCheck(data);
 
   // TODO: make sure data follows my desired type
-
   // TODO: check if exercise already exists
+
+  // Write `data` into the exerciseModel
+  const document = exerciseModel.build(data);
+  document.save(); // TODO: error handling??
   
   // res.send('Data Received: ' + JSON.stringify(data));
 
   res.json(data);
   // res.send('POST request to post page');
 }
+
+export async function deleteExercise(req : Request, res : Response) {
+
+  // const id = req.params.id;
+
+  // TODO: make sure ID in db
+  // TODO: delete row/document in table/collection
+  const deleteCount = await exerciseModel.deleteOne(req.body);
+  
+
+  // TODO: respond with ????
+
+
+  // res.json({
+  //     message: `DELETE ${req.params.id} API for MERN Boilerplate`,
+  // });
+  
+}
+

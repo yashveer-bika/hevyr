@@ -4,6 +4,8 @@ import { exerciseRouter,  } from './routes/';
 import {exerciseModel} from "../models/Exercise"
 import { Exercise } from './types/Data';
 import { connectToDB } from "./controllers/db"
+import cors from "cors"
+
 
 dotenv.config();
 
@@ -17,6 +19,8 @@ connectToDB();
 // app.get('/', (req: Request, res: Response) => {
 //   res.send('Express + TypeScript Server is running');
 // });
+
+app.use(cors());
 
 app.use('/exercises', exerciseRouter);
 
