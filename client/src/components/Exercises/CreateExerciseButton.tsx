@@ -23,6 +23,7 @@ function CreateExerciseButton() {
   const [exerciseType, setExerciseType] = useState(defaultDropDownName);
   const [equipment, setEquipment] = useState(defaultDropDownName);
   const [primaryMuscleGroup, setPrimaryMuscleGroup] = useState(defaultDropDownName);
+  const [secondaryMuscleGroup, setSecondaryMuscleGroup] = useState(defaultDropDownName);
   const [selectedFile, setSelectedFile] = useState(null);
   // TODO: add secondary
 
@@ -46,28 +47,7 @@ function CreateExerciseButton() {
 
     console.log(`NAME: ${name}`);
     // TODO: update image correctly
-    
-    // const exercise : Exercise = {
-    //   "name": name,
-    //   "equipment": equipment,
-    //   "primary": (primaryMuscleGroup as Muscle),
-    //   "img": "default",
-    //   "style": (exerciseType as ExerciseStyle),
-    //   "secondary": []
-    // }
-
-    // console.log(" Creating Exercise FormData()");
-
-    // let exercise = new FormData();
-    // exercise.append("name", name);
-    // exercise.append("equipment", equipment);
-    // exercise.append("primary", primaryMuscleGroup);
-    // exercise.append("img", "default");
-    // exercise.append("style", exerciseType);
-    // // TODO: set up reading secondary from component input
-    // exercise.append("secondary", "");
-
-    // console.log(exercise);
+    // TODO: set up proper dropdown for secondary muscles
 
     // convert exercise to FormData
     const exercise = {
@@ -93,34 +73,15 @@ function CreateExerciseButton() {
     // TODO: write out the exercise to the database
     const response = fetch('http://localhost:8000/exercises/post', {
       method: 'POST',
-      // headers: {
-      //   Accept: 'application.json',
-      //   'Content-Type': 'application/json'
-      // },
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
       },
       body: formBody,
-      // cache: 'default'
     })
 
     console.log(`Response: ${( (await response).text() )}`);
 
-
-    // const response = await fetch('http://localhost:8000/exercises/get', {
-    //   method: 'GET',
-    //   // headers: {
-    //   //   Accept: 'application.json',
-    //   //   'Content-Type': 'application/json'
-    //   // },
-    //   // body: JSON.stringify(exercise),
-    //   // cache: 'default'
-    // });
-
-    // console.log(`Response: ${(await response.text())}`);
-
     console.log(" Finished post request");
-
 
     handleClose();
   }
@@ -129,6 +90,7 @@ function CreateExerciseButton() {
   const handleExerciseType = (exerciseType:string) => setExerciseType(exerciseType);
   const handleEquipment = (equipment:string) => setEquipment(equipment);
   const handlePrimaryMuscleGroup = (muscle:string) => setPrimaryMuscleGroup(muscle);
+  const handleSecondaryMuscleGroup = (muscle:string) => setSecondaryMuscleGroup(muscle);
 
 
   return (
@@ -250,19 +212,25 @@ function CreateExerciseButton() {
 
             <div className="title-dropdown-pair">
               <div>
-                Other muscles
+                Secondary muscle group
               </div>
 
               <div>
-                <Dropdown className="d-inline mx-2" autoClose="outside">
+                <Dropdown className="d-inline mx-2">
                   <Dropdown.Toggle id="dropdown-autoclose-true">
-                    Select...
+                    {secondaryMuscleGroup}
                   </Dropdown.Toggle>
 
                   <Dropdown.Menu>
-                    <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-                    <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-                    <Dropdown.Item href="#">Menu Item</Dropdown.Item>
+                    {
+                      MuscleGroups.map(
+                        (e : any) => 
+                        <Dropdown.Item onClick={(() => handleSecondaryMuscleGroup(e.muscle))}>
+                        {/* <Dropdown.Item> */}
+                          {e.muscle}
+                        </Dropdown.Item>
+                      )
+                    }
                   </Dropdown.Menu>
                 </Dropdown>
               </div>
