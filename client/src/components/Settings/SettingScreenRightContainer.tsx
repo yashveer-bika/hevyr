@@ -20,19 +20,20 @@ export default function SettingScreenRightContainer({activeIndex}: any) {
     }
     
     function handleSubmit(event:any) {
-        event.preventDefault()
-        const url = 'http://localhost:3000/uploadFile';
-        const formData = new FormData();
-        formData.append('file', file);
-        formData.append('fileName', file.name);
-        const config = {
-        headers: {
-            'content-type': 'multipart/form-data',
-        },
-        };
-        axios.post(url, formData, config).then((response) => {
-        console.log(response.data);
-        });
+        // TODO: set up the image upload
+        // event.preventDefault()
+        // const url = 'http://localhost:3000/uploadFile';
+        // const formData = new FormData();
+        // formData.append('file', file);
+        // formData.append('fileName', file.name);
+        // const config = {
+        // headers: {
+        //     'content-type': 'multipart/form-data',
+        // },
+        // };
+        // axios.post(url, formData, config).then((response) => {
+        // console.log(response.data);
+        // });
 
     }
 

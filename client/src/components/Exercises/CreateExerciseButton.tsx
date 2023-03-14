@@ -11,7 +11,6 @@ import { defaultDropDownName } from "../Util/Dropdown";
 import MuscleGroups from "./MuscleGroups.json";
 import ExerciseTypes from "./ExerciseTypes.json";
 import Equipment from "./Equipment.json";
-// import axios from "axios";
 
 import ImageUpload from "../ImageUpload";
 import { Exercise, ExerciseStyle, Muscle } from "../../types/Data";
@@ -25,7 +24,6 @@ function CreateExerciseButton() {
   const [primaryMuscleGroup, setPrimaryMuscleGroup] = useState(defaultDropDownName);
   const [secondaryMuscleGroup, setSecondaryMuscleGroup] = useState(defaultDropDownName);
   const [selectedFile, setSelectedFile] = useState(null);
-  // TODO: add secondary
 
   function resetCreateExerciseWindow() {
     setExerciseType(defaultDropDownName);
@@ -45,9 +43,10 @@ function CreateExerciseButton() {
     const name = (document.getElementById("addInput") as HTMLInputElement).value;
     // const name = (document.getElementById("addInput"))?.outerHTML!;
 
-    console.log(`NAME: ${name}`);
     // TODO: update image correctly
-    // TODO: set up proper dropdown for secondary muscles
+
+    console.log(`NAME: ${name}`);
+
 
     // convert exercise to FormData
     const exercise = {
@@ -56,7 +55,7 @@ function CreateExerciseButton() {
       primary: primaryMuscleGroup,
       img: "default",
       style: exerciseType,
-      secondary: "Chest,Shoulders"
+      secondary: secondaryMuscleGroup === defaultDropDownName ? "" : secondaryMuscleGroup
     }
 
     console.log(" Finished creating exercise FormData");
@@ -70,7 +69,7 @@ function CreateExerciseButton() {
     console.log("Form Body");
     console.log(formBody);
 
-    // TODO: write out the exercise to the database
+    // write out the exercise to the database
     const response = fetch('http://localhost:8000/exercises/post', {
       method: 'POST',
       headers: {
