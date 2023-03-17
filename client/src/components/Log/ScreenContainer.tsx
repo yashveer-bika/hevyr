@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, ButtonGroup, Dropdown, Modal } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useStopwatch } from "react-timer-hook";
 import TestImage from '../../assets/test.jpg'
@@ -17,6 +17,17 @@ function useForceUpdate(){
 }
 
 export default function ScreenContainer() {
+    // state declarations
+    const [showClocks, setShowClocks] = useState(false);
+    const [activeWatch, setActiveWatch] = useState(false);
+    const [showCurrentWorkout, setShowCurrentWorkout] = useState(false);
+    const [showStartEmptyWorkoutButton, setShowStartEmptyWorkoutButton] = useState(true);
+    const [showExerciseDatabaseModal, setShowExerciseDatabaseModal] = useState(false);
+    // TODO: use a more complete custom type instead of string (JSX.Element)
+    // TODO: make the switch over to full component with image, sets, lbs, reps, etc.
+    // const [activeExercises, setActiveExercises] = useState<string[]>([]);
+    const [activeExerciseCells, setActiveExerciseCells] = useState<JSX.Element[]>([]);
+    const [rowArray, setRowArray] = useState<number[]>([]);
 
     const {
         seconds,
@@ -31,8 +42,6 @@ export default function ScreenContainer() {
 
     let navigate = useNavigate();
 
-    const [showClocks, setShowClocks] = useState(false);
-
     function openClocksModal() {
         
     }
@@ -40,9 +49,6 @@ export default function ScreenContainer() {
     function startTimer() {
 
     }
-
-    const [activeWatch, setActiveWatch] = useState(false);
-
 
     // time in milliseconds (ms)
     const defaultTimerStartTime : number = 60 * 1000;
@@ -96,11 +102,7 @@ export default function ScreenContainer() {
                     </Modal.Body>
 
                 </Modal>
-
-
-
-    const [showCurrentWorkout, setShowCurrentWorkout] = useState(false);
-    const [showStartEmptyWorkoutButton, setShowStartEmptyWorkoutButton] = useState(true);
+    
     const startTime = Date.now();
 
     function startEmptyWorkout() {
@@ -113,23 +115,81 @@ export default function ScreenContainer() {
 
     }
 
+    // TODO: send data to API
+    async function sendWorkoutLogToAPI() {
+        console.log("Saving changes from finish workout button");
+
+        const title = (document.getElementById("addInput") as HTMLInputElement).value;
+        const description = (document.getElementById("description") as HTMLInputElement).value;
+
+        const endTime = Date.now();
+
+        console.log(`Title: ${title}`);
+
+
+        // scan over activeExerciseCells and read out
+
+        activeExerciseCells.forEach(postRow);
+
+        function postRow(logCell : JSX.Element) {
+            
+            // TODO: read exercise_title from logCell
+            // TODO: read exercise_notes from logCell
+            // TODO: read set_index from logCell
+            // TODO: read set_type from logCell
+            // TODO: read weight_lbs from logCell
+            // TODO: read reps from logCell
+            // TODO: read duration_seconds from logCell
+
+            const logRow = {
+                title: title,
+                startTime: startTime,
+                endTime: endTime,
+                description: description,
+                exercise_title: __dirname,
+                exercise_notes: __dirname,
+                set_index: __dirname,
+                set_type: __dirname,
+                weight_lbs: __dirname,
+                reps: __dirname,
+                distance_miles: __dirname,
+                duration_seconds: __dirname,
+            }
+    
+            // console.log(" Finished creating exercise FormData");
+    
+            // console.log(" Starting post request");
+    
+            // console.log("KEYS");
+            // console.log(Object.keys(exercise));
+    
+            // const formBody = Object.keys(exercise).map(key => encodeURIComponent(key) + '=' + encodeURIComponent(exercise[key as keyof Exercise])).join('&');
+            // console.log("Form Body");
+            // console.log(formBody);
+    
+            // // write out the exercise to the database
+            // const response = fetch('http://localhost:8000/log/post', {
+            // method: 'POST',
+            // headers: {
+            //     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+            // },
+            // body: formBody,
+            // })
+    
+            // console.log(`Response: ${( (await response).text() )}`);
+    
+            // console.log(" Finished post request");
+        }
+    }
+
     function finishWorkoutEventHandler() {
         // TODO: set up whatever other triggers are needed
+        sendWorkoutLogToAPI();
 
         // show popup
         setShowCurrentWorkout(false);
         setShowStartEmptyWorkoutButton(true);
     }
-
-    const [showExerciseDatabaseModal, setShowExerciseDatabaseModal] = useState(false);
-
-    // TODO: use a more complete custom type instead of string (JSX.Element)
-    // TODO: make the switch over to full component with image, sets, lbs, reps, etc.
-    const [activeExercises, setActiveExercises] = useState<string[]>([]);
-
-    const [activeExerciseCells, setActiveExerciseCells] = useState<JSX.Element[]>([]);
-
-    const [rowArray, setRowArray] = useState<number[]>([]);
 
     const forceUpdate = useForceUpdate();
 
@@ -197,7 +257,6 @@ export default function ScreenContainer() {
     function addExerciseEventHandler() {
         // TODO: trigger a modal view that allows me to find the exercise using search and filter on the exercise database
         setShowExerciseDatabaseModal(true);
-
     }
 
     const currentWorkoutInfoContainer = 
@@ -215,6 +274,16 @@ export default function ScreenContainer() {
 
 
                             <Button onClick={finishWorkoutEventHandler}> Finish </Button>
+                        </div>
+
+                        <div className="title-bar">
+                            <form className="form" id="">
+                                <input type="text" className="input" id="addInput" placeholder="Title..." />
+                            </form>
+
+                            <form className="form" id="">
+                                <input type="text" className="input" id="description" placeholder="Description..." />
+                            </form>
                         </div>
 
                         <div className="workout-info-bar">
