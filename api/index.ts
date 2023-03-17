@@ -1,10 +1,9 @@
 import express, { Express, Request, Response } from 'express';
 import dotenv from 'dotenv';
-import { exerciseRouter,  } from './routes/';
-import {exerciseModel} from "../models/Exercise"
-import { Exercise } from './types/Data';
+import { exerciseRouter, logRouter } from './routes/';
 import { connectToDB } from "./controllers/db"
 import cors from "cors"
+// import { logRouter } from './routes/logRouter';
 
 
 dotenv.config();
@@ -21,6 +20,8 @@ connectToDB();
 // });
 
 app.use(cors());
+
+app.use('/log', logRouter);
 
 app.use('/exercises', exerciseRouter);
 

@@ -17,7 +17,6 @@ export type ExerciseStyle =
     "Weight & Distance"
 ;
 
-
 export interface Exercise {
     name: string | undefined;
     equipment: string;
@@ -25,4 +24,25 @@ export interface Exercise {
     img: string; // TODO: figure out a good type for img
     style: ExerciseStyle;
     secondary: Muscle | Muscle[];
+}
+
+// TODO: edit type correctly
+export interface LogRow {
+    title: string;
+    startTime: string;
+    endTime: string;
+    description: string;
+    exercise_title: string;
+    superset_id: number;	
+    exercise_notes: string;
+    set_index: number;
+    set_type: string;
+    weight_lbs:	number;
+    reps: number;
+    distance_miles: number;	
+    duration_seconds: number;
+}
+
+export interface Log {
+    rows: LogRow[];
 }
