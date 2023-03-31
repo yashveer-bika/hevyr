@@ -1,9 +1,11 @@
 import { Table, TextField } from "@mui/material";
 import { useState } from "react";
-import { Button, Modal } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
+import { Button } from '@mui/material';
 import "../../styles/Log.css"
 import TestImage from '../../assets/test.jpg'
 import SetRow from "./SetRow";
+import { EditableTable } from "../Sandbox/EditableTable";
 
 
 /*
@@ -149,7 +151,7 @@ export default function LogCell({deleteLogCell, deleteSet, lift, id} : any) {
                 Rest timer: OFF
             </div>
 
-            <div>
+            {/* <div>
                 <Table>
                     <thead>
                         <tr>
@@ -164,11 +166,14 @@ export default function LogCell({deleteLogCell, deleteSet, lift, id} : any) {
                        {exerciseSetRows}
                     </tbody>
                 </Table>
-            </div>
+            </div> */}
 
-            <div>
+            <EditableTable></EditableTable>
+
+            {/* <div>
                 <Button onClick={addSetEventHandler}>+ Add Set</Button>
-            </div>
+            </div> */}
+
         </div>
         
     );

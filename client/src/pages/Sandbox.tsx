@@ -1,6 +1,7 @@
 import LogCell from '../components/Log/LogCell';
 import Navbar from '../components/NavBar/NavBar';
 import APIConnect from '../components/Sandbox/ApiConnect';
+import { EditableTable } from '../components/Sandbox/EditableTable';
 import Pages from "./Pages.json";
 
 function Sandbox() {
@@ -8,9 +9,11 @@ function Sandbox() {
         <div>
             <Navbar pages={ Pages } />
 
-            <LogCell lift="Front Squat" id="3"></LogCell>
+            <EditableTable></EditableTable>
 
-            <APIConnect/>
+            {/* <LogCell lift="Front Squat" id="3"></LogCell> */}
+
+            {/* <APIConnect/> */}
         </div>
     );
 }

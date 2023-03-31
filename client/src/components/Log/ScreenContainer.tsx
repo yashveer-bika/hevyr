@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Button, Modal } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
+import { Button } from '@mui/material';
 import { useNavigate } from "react-router-dom";
 import { useStopwatch } from "react-timer-hook";
 import TestImage from '../../assets/test.jpg'
@@ -365,7 +366,7 @@ export default function ScreenContainer() {
                     <div>
                         <div> Quick start </div>
                         <div> 
-                            <button onClick={startEmptyWorkout}> Start empty workout </button>
+                            <Button onClick={startEmptyWorkout}> Start empty workout </Button>
                         </div>
                     </div>
                 ) : <></>
