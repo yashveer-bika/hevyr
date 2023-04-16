@@ -5,7 +5,7 @@ import "../../styles/Exercises.css";
 // import Popup from "../Util/PopUp";
 
 import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
+// import Button from 'react-bootstrap/Button';
 import { Dropdown } from "react-bootstrap";
 import { defaultDropDownName } from "../Util/Dropdown";
 import MuscleGroups from "./MuscleGroups.json";
@@ -14,6 +14,7 @@ import Equipment from "./Equipment.json";
 
 import ImageUpload from "../ImageUpload";
 import { Exercise, ExerciseStyle, Muscle } from "../../types/Data";
+import { Button } from "@mui/material";
 
 
 
@@ -94,7 +95,7 @@ function CreateExerciseButton() {
 
   return (
     <div className="create-exercise-button">
-      <Button variant="primary" onClick={handleShow}>
+      <Button onClick={handleShow}>
         + Create Exercise
       </Button>
 
@@ -243,7 +244,7 @@ function CreateExerciseButton() {
           {/* <Button variant="secondary" onClick={handleClose}>
             Close
           </Button> */}
-          <Button variant="primary" onClick={saveChanges}>
+          <Button onClick={saveChanges}>
             Save Changes
           </Button>
         </Modal.Footer>

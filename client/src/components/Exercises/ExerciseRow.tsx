@@ -1,7 +1,8 @@
 // import React from "react";
 import "../../styles/Exercises.css";
 import TestImage from '../../assets/test.jpg'
-import { Button } from "react-bootstrap";
+import { Button } from "@mui/material";
+// import { Button } from "react-bootstrap";
 
 export interface exerciseRowProperties { 
   lift: string;

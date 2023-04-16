@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Modal } from "react-bootstrap";
-import { Button } from '@mui/material';
+import { Button, TextField } from '@mui/material';
 import { useNavigate } from "react-router-dom";
 import { useStopwatch } from "react-timer-hook";
 import TestImage from '../../assets/test.jpg'
@@ -29,6 +29,9 @@ export default function ScreenContainer() {
     // const [activeExercises, setActiveExercises] = useState<string[]>([]);
     const [activeExerciseCells, setActiveExerciseCells] = useState<JSX.Element[]>([]);
     const [rowArray, setRowArray] = useState<number[]>([]);
+
+    const [workoutTitle, setWorkoutTitle] = useState("");
+    const [workoutDescription, setWorkoutDescription] = useState("");
 
     const {
         seconds,
@@ -120,19 +123,20 @@ export default function ScreenContainer() {
     async function sendWorkoutLogToAPI() {
         console.log("Saving changes from finish workout button");
 
-        const title = (document.getElementById("addInput") as HTMLInputElement).value;
-        const description = (document.getElementById("description") as HTMLInputElement).value;
-
         const endTime = Date.now();
 
-        console.log(`Title: ${title}`);
-
+        console.log(`WORKOUT TITLE: ${workoutTitle}`);
+        console.log(`WORKOUT DESCRIPTION: ${workoutDescription}`);
 
         // scan over activeExerciseCells and read out
 
-        activeExerciseCells.forEach(postRow);
+        activeExerciseCells.forEach(logExercise);
 
-        function postRow(logCell : JSX.Element) {
+        function logExercise(logCell : JSX.Element) {
+            
+        }
+
+        function postRow() {
             
             // TODO: read exercise_title from logCell
             // TODO: read exercise_notes from logCell
@@ -143,10 +147,10 @@ export default function ScreenContainer() {
             // TODO: read duration_seconds from logCell
 
             const logRow = {
-                title: title,
+                title: workoutTitle,
                 startTime: startTime,
                 endTime: endTime,
-                description: description,
+                description: workoutDescription,
                 exercise_title: __dirname,
                 exercise_notes: __dirname,
                 set_index: __dirname,
@@ -183,13 +187,15 @@ export default function ScreenContainer() {
         }
     }
 
+    // triggers when finish workout
     function finishWorkoutEventHandler() {
         // TODO: set up whatever other triggers are needed
         sendWorkoutLogToAPI();
 
-        // show popup
+        // show popup to verify workout finish
         setShowCurrentWorkout(false);
         setShowStartEmptyWorkoutButton(true);
+
     }
 
     const forceUpdate = useForceUpdate();
@@ -278,13 +284,21 @@ export default function ScreenContainer() {
                         </div>
 
                         <div className="title-bar">
-                            <form className="form" id="">
+                            {/* <form className="form" id="">
                                 <input type="text" className="input" id="addInput" placeholder="Title..." />
-                            </form>
+                            </form> */}
 
-                            <form className="form" id="">
+                            <TextField id="workout_title" label="Title" variant="outlined" 
+                                multiline={true} value={workoutTitle} 
+                                onChange={(e) => setWorkoutTitle(e.target.value)} />
+                            
+                            <TextField id="workout_description" label="Description" variant="outlined" 
+                                multiline={true} value={workoutDescription} 
+                                onChange={(e) => setWorkoutDescription(e.target.value)} />
+
+                            {/* <form className="form" id="">
                                 <input type="text" className="input" id="description" placeholder="Description..." />
-                            </form>
+                            </form> */}
                         </div>
 
                         <div className="workout-info-bar">

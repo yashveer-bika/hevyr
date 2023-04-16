@@ -143,7 +143,7 @@ export default function LogCell({deleteLogCell, deleteSet, lift, id} : any) {
 
             <div>
                
-                <TextField id="outlined-basic" label=" Add notes here..." variant="outlined" />
+                <TextField id="exercise-notes" label="Exercise Notes" variant="outlined" />
 
             </div>
 

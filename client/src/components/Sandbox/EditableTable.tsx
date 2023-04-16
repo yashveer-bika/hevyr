@@ -2,6 +2,9 @@
 import { Button } from '@mui/material';
 import React from 'react';
 
+
+let counter = 1;
+
 // TODO: fix the vestigial row issue
 
 // CELL -----------------------------------------
@@ -71,7 +74,7 @@ const Cell = React.memo(({value, mode, onChange} : any) => {
     //         <div onClick={handleEditClick}>{localValue}</div>
     //     );
     // }
-    return null;
+    // return null;
 });
 
 // ROW ------------------------------------------
@@ -124,7 +127,7 @@ const Row = React.memo(({ idx, mode, columns, data, onChange, onDelete} : any) =
             </td> */}
 
             <td style={optionStyle}>
-            <button onClick={handleDeleteClick}>Delete</button>
+                <Button onClick={handleDeleteClick}>Delete</Button>
             </td>
         </tr>
     );
@@ -215,8 +218,6 @@ const columns = [
     { path: 'name', name: 'LBS' },
     { path: 'reps',  name: 'REPS'  },
 ];
-
-let counter = 1;
 
 export const EditableTable = () => {
     
