@@ -16,17 +16,6 @@ import { EditableTable } from "../Sandbox/EditableTable";
 */
 
 
-
-
-// TODO: see if I can remove this forced state update
-//create your forceUpdate hook
-function useForceUpdate(){
-    const [value, setValue] = useState(0); // integer state
-    return () => setValue(value => value + 1); // update state to force render
-    // A function that increment 👆🏻 the previous state like here 
-    // is better than directly setting `setValue(value + 1)`
-}
-
 export interface ILogCellProps {
     deleteLogCell(genId: number): void,
     deleteSet : any,  
@@ -43,8 +32,6 @@ export interface ILogCellData {
 // TODO: set up deleteSet correctly
 export default function LogCell({deleteLogCell, deleteSet, lift, id} : any) {
 
-    const forceUpdate = useForceUpdate();
-
     const [activeGenIds, setActiveGenIds] = useState<number[]>([]);
     const [exerciseSetRows, setExerciseSetRows] = useState<JSX.Element[]>([]);
     const [genId, setGenId] = useState(0);
@@ -52,15 +39,8 @@ export default function LogCell({deleteLogCell, deleteSet, lift, id} : any) {
     function deleteRowEventHandler(id : number) {
         let idx = activeGenIds.indexOf(id);
         
-        let newGenIds = activeGenIds;
-        newGenIds.splice(idx, 1);
-        setActiveGenIds(newGenIds);
-
-        let newActiveSets = exerciseSetRows;
-        newActiveSets.splice(idx, 1);
-        setExerciseSetRows(newActiveSets);
-
-        forceUpdate();
+        setActiveGenIds(activeGenIds => activeGenIds.splice(idx,1));
+        setExerciseSetRows(exerciseSetRows => exerciseSetRows.splice(idx, 1));
     }
 
     function addSetEventHandler() {
@@ -86,17 +66,15 @@ export default function LogCell({deleteLogCell, deleteSet, lift, id} : any) {
         );
 
         // update active sets
-        let temp = exerciseSetRows;
-        temp.push(emptyRow);
-        setExerciseSetRows(temp);
+        // let temp = exerciseSetRows;
+        // temp.push(emptyRow);
+        setExerciseSetRows(exerciseSetRows => [...exerciseSetRows, emptyRow]);
         // update active gen ids
-        let temp2 = activeGenIds;
-        temp2.push(genId);
-        setActiveGenIds(temp2);
+        // let temp2 = activeGenIds;
+        // temp2.push(genId);
+        setActiveGenIds(activeGenIds => [...activeGenIds, genId]);
         
-        setGenId(genId+1); // update genId
-
-        forceUpdate();
+        setGenId(genId => genId+1); // update genId
 
     }
 

@@ -10,13 +10,6 @@ import LogCell from "./LogCell";
 import Stopwatch from "./Stopwatch";
 import Timer from "./Timer";
 
-function useForceUpdate(){
-    const [value, setValue] = useState(0); // integer state
-    return () => setValue(value => value + 1); // update state to force render
-    // A function that increment 👆🏻 the previous state like here 
-    // is better than directly setting `setValue(value + 1)`
-}
-
 export default function ScreenContainer() {
     // state declarations
     const [showClocks, setShowClocks] = useState(false);
@@ -198,19 +191,16 @@ export default function ScreenContainer() {
 
     }
 
-    const forceUpdate = useForceUpdate();
-
     let runningId = 0;
 
     function deleteRowEventHandler(genId : number) {
         let temp = rowArray;
         var index = temp.indexOf(genId);
         console.log(`Delete index: ${index}`);
-        let temp2 = activeExerciseCells;
-        temp2.splice(index, 1);
+        
         console.log(`Updated active: ${activeExerciseCells.map((x : JSX.Element) => x)}`);
-        setActiveExerciseCells(temp2);
-        forceUpdate();
+        
+        setActiveExerciseCells(activeExerciseCells => activeExerciseCells.splice(index, 1));
         
     }
 

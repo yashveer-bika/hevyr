@@ -8,7 +8,6 @@ import LeftSideContainer from "./LeftSideContainer";
 
 export default function ScreenContainer() {
     const [selectedExercises, setSelectedExercises] = useState<string[]>([]);
-    // const [reducerValue, forceUpdate] = useReducer(x => x+1, 0);
 
     useEffect(() => {
 
@@ -20,7 +19,6 @@ export default function ScreenContainer() {
         // newSelectedExercises.push(lift);
         setSelectedExercises(selectedExercises => [...selectedExercises, lift]);
         console.log(selectedExercises);
-        // forceUpdate();
     }
     
 
